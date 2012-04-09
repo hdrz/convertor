@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Convertor - A free & open sorce unit converter. This file is adapted
+  from a program made by KamLex. It was previously under the zlib license,
+  which is compatible with GPL.
+
+  Copyright (C) 2009 KamLex, 2012 H. Raz hadaraz@gmail.com
+
+  This source is free software; you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free
+  Software Foundation; either version 2 of the License, or (at your option)
+  any later version.
+
+  This code is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  details.
+
+  A copy of the GNU General Public License is available on the World Wide Web
+  at <http://www.gnu.org/copyleft/gpl.html>. You can also obtain it by writing
+  to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+  MA 02111-1307, USA.
+-->
+<!--
+Guidelines:
+	1. write unit names in lower case
+	2. use only common abbreviations, leave blank if there is no abbriviation
+	3. for units that have different definitions i.e. "calorie" provide info about
+       conversion factor used for this unit.
+	4. use scientific notation for long conversion factors (more than 3 zeros),
+       i.e. 1e7 instead of 10000000
+	5. SI units are major units i.e. m, kg, s, Pa, ..., meaning their values are: lf=1 cf=0
+	6. Conversion factors of other units are relative to major units, i.e. y=lf*x+cf
+       where x is major unit value
+	7. Do not round conversion factors!!! use as many digits as you can
+    8. Compulsory attributes: name, lf
+    9. Optional attributes: abbr, cf, info
+-->
+<convert>
+    <category name="Length">
+      <unit name="angström" abbr="Å" lf="1e-10" info="Angstrom sometimes used expressing the size of atoms, and lengths of chemical bonds and visible-light spectra." />
+      <unit name="astronomical unit" abbr="AU" lf="149598550000" info="Is a unit of length approximately equal to the distance from the Earth to the Sun." />
+      <unit name="barleycorn" abbr="" lf="0.008467" info="English unit of length equal to 1/3 inch." />
+      <unit name="calibre" abbr="cal" lf="0.0254" info="The term most often appears with respect to firearms, as a measure of the inside diameter of the barrel in inches or hundredths of an inch, or in millimetres." />
+      <unit name="cable length(UK)" abbr="cables" lf="182.88" info="The unit is named after the length of a ship's anchor cable in the age of sail." />
+      <unit name="cable length(US)" abbr="cables" lf="219.456" info="US Navy: 120 fathoms (720 feet), or 219.456 m." />
+      <unit name="cable length" abbr="cables" lf="185.2" info="The International cable length: 1/10 nautical mile, or 185.2 m" />
+      <unit name="centimeter" abbr="cm" lf="0.01" />
+      <unit name="chain" abbr="ch" lf="20.1168" />
+      <unit name="decimeter" abbr="dm" lf="0.1" />
+      <unit name="ells(UK)" abbr="ells" lf="0.875" />
+      <unit name="ems(pica)" abbr="ems" lf="0.004233" />
+      <unit name="fathom" abbr="fm" lf="1.8288" info="The name derives from the Old English word fæðm meaning 'a pair of outstretched arms'." />
+      <unit name="femtometer" abbr="fm" lf="1e-15" />
+      <unit name="foot" abbr="ft" lf="0.3048" info="International foot. Foot is a unit of length, in a number of different systems, including English units, Imperial units, and United States customary units. Its size can vary from system to system, but in each is around a quarter to a third of a metre. The most commonly used foot today is the international foot." />
+      <unit name="furlong" abbr="fur" lf="201.168" info="Is equal to 660 feet or one-eighth of a mile. It is heavily used within the rail industry (especially maintenance and repair services) in the UK, due to the legacy measurements and distance markers from when the tracks were first laid down." />
+      <unit name="hand" abbr="hand" lf="0.1016" />
+      <unit name="hectometer" abbr="hm" lf="100" />
+      <unit name="inch" abbr="in" lf="0.0254" info="The international inch is defined to be precisely 25.4 mm" />
+      <unit name="kilometer" abbr="km" lf="1000" />
+      <unit name="light-year" abbr="ly" lf="9460528405000000" info="A light-year is the distance that light travels in a vacuum in one year. While there is no authoritative decision on which year is used, the International Astronomical Union (IAU) recommends the Julian year." />
+      <unit name="link" abbr="li" lf="0.201168" />
+      <unit name="meter" abbr="m" lf="1" info="Is the fundamental unit of length in the International System of Units (SI). The meter is defined as the length of the path traveled by light in vacuum during a time interval of 1/299,792,458 second." />
+      <unit name="micrometer" abbr="µm" lf="1e-06" />
+      <unit name="mil(thou)" abbr="mil" lf="0.0000254" info="Is a unit of length equal to 0.001 inches (milli-inch)." />
+      <unit name="mile" abbr="mi" lf="1609.344" info="The international mile is defined to be precisely 1760 international yards (by definition, 0.9144 m each) and is therefore exactly 1609.344 metres." />
+      <unit name="mile(nautical)" abbr="nmi(NM)" lf="1852" info="Corresponds approximately to one minute of latitude along any meridian. It is a non-SI unit used by special interest groups such as navigators in the shipping and aviation industries. It is commonly used in international law and treaties, especially regarding the limits of territorial waters. It developed from the geographical mile." />
+      <unit name="millimeter" abbr="mm" lf="0.001" />
+      <unit name="nanometer" abbr="nm" lf="1e-09" />
+      <unit name="parsec" abbr="pc" lf="30856776000000000" info="The name parsec stands for ''parallax of one second of arc'', and one parsec is defined to be the distance from the Earth to a star that has a parallax of 1 arcsecond." />
+      <unit name="picometer" abbr="pm" lf="1e-12" />
+      <unit name="rod" abbr="rd" lf="5.029210" />
+      <unit name="versta" abbr="" lf="1066.8" info="Versta (verst) is an obsolete Russian unit of length. It is defined as being 500 sazhen long, which makes a verst equal to 3500 feet (1.0668 kilometres)." />
+      <unit name="yard" abbr="yd" lf="0.9144" info="The international yard is defined as 3 feet, 36 inches, or 1/1760 of a mile, which is exactly 0.9144 metres." />
+      <unit name="arshin" abbr="" lf="0.7112" info="Obsolete Russian unit was used in Imperial Russia and after the Russian Revolution, but it was abandoned in 1924 when the Soviet Union adopted the metric system." />
+      <unit name="sazhen" abbr="" lf="2.1336" info="Obsolete Russian unit was used in Imperial Russia and after the Russian Revolution, but it was abandoned in 1924 when the Soviet Union adopted the metric system." />
+    </category>
+    <category name="Area">
+      <unit name="square meter" abbr="m²" lf="1" cf="0" />
+      <unit name="square centimeter" abbr="cm²" lf="0.0001" cf="0" />
+      <unit name="square milimeter" abbr="mm²" lf="0.000001" cf="0" />
+      <unit name="square kilometer" abbr="km²" lf="1000000" cf="0" />
+      <unit name="are" abbr="a" lf="100" cf="0" />
+      <unit name="acre" abbr="ac" lf="4046.8564224" cf="0" info="International acre." />
+      <unit name="acre(US)" abbr="ac" lf="4046.87261" cf="0" info="United States survey acre." />
+      <unit name="barn" abbr="b" lf="1e-28" cf="0" />
+      <unit name="circular mil" abbr="cmil" lf="5.06707e-10" cf="0" />
+      <unit name="darcy" abbr="d" lf="9.86923e-13" cf="0" />
+      <unit name="hectare" abbr="ha" lf="10000" cf="0" info="Commonly used for measuring land area." />
+      <unit name="square yard" abbr="yd²" lf="0.83612736" cf="0" />
+      <unit name="square foot" abbr="ft²" lf="0.09290304" cf="0" />
+      <unit name="square inch" abbr="in²" lf="0.00064516" cf="0" />
+      <unit name="square mile" abbr="mi²" lf="2589988.110336" cf="0" />
+      <unit name="township" abbr="ts" lf="9.32396e+7" cf="0" />
+    </category>
+    <category name="Angle">
+      <unit name="circle" abbr="" lf="360" cf="0" />
+      <unit name="degree" abbr="°" lf="1" cf="0" info="Is a measurement of plane angle, representing 1/360 of a full rotation" />
+      <unit name="grad or gon" abbr="grd" lf="0.9" cf="0" info="One grad equals 9/10 of a degree or π/200 of a radian     " />
+      <unit name="quadrant" abbr="" lf="90" cf="0" />
+      <unit name="radian" abbr="rad" lf="57.29577951" cf="0" info="1rad = 180/π" />
+      <unit name="revolution" abbr="r" lf="360" cf="0" />
+      <unit name="right angle" abbr="" lf="90" cf="0" />
+      <unit name="mil" abbr="" lf="0.05625" cf="0" />
+      <unit name="minutes" abbr="'" lf="0.0166666666" cf="0" info="1° = 1/60" />
+      <unit name="seconds" abbr="''" lf="2.7777777778e-4" cf="0" info="1° = 1/3600" />
+      <unit name="sextant" abbr="" lf="60" cf="0" />
+      <unit name="sign" abbr="" lf="30" cf="0" />
+      <unit name="turn" abbr="" lf="360" cf="0" />
+    </category>
+    <category name="Velocity">
+      <unit name="meter/second" abbr="m/s" lf="1" />
+      <unit name="meter/minute" abbr="m/min" lf="0.01666666666666666666667" />
+      <unit name="meter/hour" abbr="m/h" lf="0.000277777777777778" />
+      <unit name="foot/hour" abbr="fph" lf="8.4666666666e-5" />
+      <unit name="inch/minute" abbr="ipm" lf="4.2333333333e-4" />
+      <unit name="foot/minute" abbr="fpm" lf="0.00508" />
+      <unit name="inch/second" abbr="ips" lf="0.0254" />
+      <unit name="kilometer/hour" abbr="km/h" lf="0.27777777777778" />
+      <unit name="kilometer/minute" abbr="km/min" lf="16.666666666667" />
+      <unit name="kilometer/second" abbr="km/s" lf="1000" />
+      <unit name="foot/second" abbr="fps" lf="0.3048" />
+      <unit name="mile/hour" abbr="mph" lf="0.44704" />
+      <unit name="knot" abbr="kn" lf="0.514444" info="Knot is a unit of speed, equal to one nautical mile per hour." />
+      <unit name="knot(admiralty)" abbr="kn" lf="0.514773" />
+      <unit name="mile/minute" abbr="mpm" lf="26.8224" />
+      <unit name="mile/second" abbr="mps" lf="1609.344" />
+      <unit name="Mach" abbr="M" lf="340.3" info="Speed of sound in the air at standard conditions." />
+      <unit name="speed of light in vacuum" abbr="c" lf="2.99792458e+8" info="The speed of light in a vacuum is an important physical constant denoted by the letter c for constant or the Latin word celeritas meaning 'swiftness'. It is the speed of all electromagnetic radiation, including visible light, in a vacuum. More generally, it is the speed of anything having zero rest mass." />
+    </category>
+    <category name="Angular Velocity">
+      <unit name="degree/second" abbr="°/s" lf="1" />
+      <unit name="degree/minute" abbr="°/s" lf="0.0166667" />
+      <unit name="radian/second" abbr="rad/s" lf="57.2958" />
+      <unit name="revolution/second" abbr="r/s" lf="360" />
+      <unit name="revolution/minute" abbr="r/min" lf="6" />
+      <unit name="revolution/hour" abbr="r/h" lf="0.1" />
+    </category>
+    <category name="Acceleration">
+      <unit name="meter/second²" abbr="m/s²" lf="1" />
+      <unit name="millimeter/second²" abbr="mm/s²" lf="0.001" />
+      <unit name="kilometer/second²" abbr="km/s²" lf="1000" />
+      <unit name="foot/second²" abbr="ft/s²" lf="0.304799" />
+      <unit name="inch/second²" abbr="in/s²" lf="0.0254" />
+      <unit name="Earth's acceleration" abbr="g" lf="9.80665" />
+      <unit name="mile/hour·second" abbr="mi/h·s" lf="0.447039" />
+    </category>
+    <category name="Angular Acceleration">
+      <unit name="degree/second²" abbr="°/s²" lf="1" />
+      <unit name="radian/second²" abbr="rad/s²" lf="57.2958" />
+      <unit name="revolution/second²" abbr="r/s²" lf="360" />
+      <unit name="revolution/minute²" abbr="r/min²" lf="0.1" />
+      <unit name="revolution/minute·second" abbr="r/min·s" lf="6" />
+    </category>
+    <category name="Mass">
+      <unit name="carat" abbr="carat" lf="0.0002" info="The carat is a unit of mass used for gems, and equals 200 milligrams. The word derives from the Greek keration (fruit of the carob), via Arabic and Italian. Carob seeds were used as weights on precision scales because of their uniform weight. In the distant past, different countries each had their own carat, roughly equivalent to a carob seed" />
+      <unit name="cental" abbr="cental" lf="45.359237" />
+      <unit name="dram" abbr="dr" lf="0.0017718451953125" info="The dram (archaic spelling drachm) was historically both a coin and a weight. Currently it is both a small mass in the Apothecaries' system of weights and a small unit of volume. The Greek drachm was a weight of 1⁄100 Greek mine, which is about 4.37 grams. The Roman drachm was a weight of 1⁄96 Roman pounds, which is about 3.41 grams. The dram is the mass of 1⁄256 pound avoirdupois or 1⁄16 ounce. So the dram weighs 875⁄32 grains or about 1.771845 grams." />
+      <unit name="grain" abbr="gr" lf="0.000065" info="Originally, a grain was the weight of a grain seed from the middle of an ear of barley." />
+      <unit name="gram" abbr="g" lf="0.001" />
+      <unit name="hundredweight" abbr="cwt" lf="45.359237" />
+      <unit name="kilogram" abbr="kg" lf="1" info="The kilogram is the unit of mass equal to the mass of the international prototype of kilogram. [1st CGPM (1889), 3rd CGPM (1901)]. It is the only SI unit that is still defined in relation to an artifact rather than to a fundamental physical property that can be reproduced in different laboratories." />
+      <unit name="microgram" abbr="µg" lf="1e-09" />
+      <unit name="milligram" abbr="mg" lf="1e-06" />
+      <unit name="ounce" abbr="oz" lf="0.02835" info="International avoirdupois ounce (most common). The abbreviation ''oz'' comes from the old Italian word ''onza'' (now spelled oncia), meaning ounce." />
+      <unit name="ounce(troy)" abbr="t oz" lf="0.031103" info="International troy ounce." />
+      <unit name="pood" abbr="pood" lf="16.3805" info="Pood was introduced in twelfth century. It may still be encountered in documents dealing with agricultural production. 1 pood = 16.3805 kg" />
+      <unit name="pound" abbr="lbm" lf="0.45359237" info="The pound is the name of a number of units of mass, all in the range of 300 to 600 grams. Most commonly, it refers to the avoirdupois pound (454 g), divided into 16 avoirdupois ounces." />
+      <unit name="pound(troy)" abbr="t lbm" lf="0.373242" />
+      <unit name="slug" abbr="slug" lf="14.5939029" info="The slug is part of a subset of coherent units known as the gravitational foot-pound-second system (FPS), one of several such specialized systems of mechanical units developed in the late 19th and the 20th century. The slug was first used in 1902 by Arthur Mason Worthington (1852-1916) in Dynamics of Rotation (OED). It is a mass that accelerates by 1 ft/s² when a force of one pound-force (lbf) is exerted on it. Therefore a slug has a mass of about 32.174 05 pounds or 14.593 90 kg." />
+      <unit name="stone" abbr="stone" lf="6.350293" />
+      <unit name="tonne" abbr="t" lf="1000" />
+      <unit name="ton(UK or long)" abbr="ton" lf="1016.046909" />
+      <unit name="ton(UK or short)" abbr="ton" lf="907.18474" />
+      <unit name="kip" abbr="kip" lf="453.59237" info="In the United States, a kip is a unit of force that equals 1,000 pounds-force, used primarily by architects and engineers to measure engineering loads. It is also used as a unit of weight to compute shipping charges. It is equivalent to one half of a U.S. ton. Although uncommon, it is occasionally also considered a unit of mass, equal to 1,000 pounds. The name comes from combining the words 'kilo' and 'pound', it is occasionally called a kilopound." />
+      <unit name="zentner(DE)" abbr="ztr" lf="50" info="A traditional German unit of weight or mass, comparable to the traditional quintal and to the English hundredweight. Similar units were used in Scandinavia. Originally the zentner was equal to 100 pfund, or German pounds. 100 pfund varied from 110 to as much as 120 pounds  avoirdupois (49.9-54.4 kilograms), depending on the market. After the introduction of the metric system in Germany, the zentner was redefined to equal to exactly 50 kilograms, which is about 110.231 pounds. In English, the zentner is commonly spelled centner." />
+      <unit name="zentner(ex-USSR)" abbr="ztr" lf="100" info="In Italy, Russia, Ukraine and some other ex-USSR states 1 zentner = 100 kg" />
+    </category>
+    <category name="Volume">
+      <unit name="barrel(beer)" abbr="bbl" lf="117.3478" info="In the United States, it holds 31 U.S. gallons." />
+      <unit name="barrel(oil)" abbr="bbl" lf="158.987295" info="The standard oil barrel is used in the United States for crude oil or other petroleum products. 1 Oil barrel = 42 US gallons" />
+      <unit name="bushel(UK)" abbr="bu" lf="36.36872" />
+      <unit name="bushel(US dry level)" abbr="bu" lf="35.2390701669" info="A bushel is a unit of dry volume, usually subdivided into eight local gallons in the systems of Imperial units and U.S. customary units. It is used for volumes of dry commodities, not liquids, most often in agriculture." />
+      <unit name="centiliter" abbr="cl" lf="0.01" />
+      <unit name="cubic centimeter" abbr="cm³" lf="0.001" />
+      <unit name="cubic decimeter" abbr="dm³" lf="1" />
+      <unit name="cubic foot" abbr="ft³" lf="28.316846592" />
+      <unit name="cubic inch" abbr="in³" lf="0.016387064" />
+      <unit name="cubic meter" abbr="m³" lf="1000" />
+      <unit name="cubic millimeter" abbr="mm³" lf="0.000001" />
+      <unit name="cubic yard" abbr="yd³" lf="764.554857984" />
+      <unit name="cup" abbr="cp" lf="0.236588" info="Is used in cooking to measure bulk foods, such as chopped vegetables (dry measurement), and liquids (fluid measurement)." />
+      <unit name="deciliter" abbr="dl" lf="0.1" />
+      <unit name="fluid ounce(UK)" abbr="fl oz" lf="0.028413" />
+      <unit name="fluid ounce(US)" abbr="fl oz" lf="0.029574" />
+      <unit name="gallon(UK)" abbr="gal" lf="4.54609" />
+      <unit name="gallon, dry(US)" abbr="gal" lf="4.404884" />
+      <unit name="gallon, liquid(US)" abbr="gal" lf="3.785411784" info="US liquid gallon is 231 in³ or 128 fl oz or 3.785411784 L." />
+      <unit name="liter" abbr="L" lf="1" info="A litre is defined as a special name for a cubic decimetre (1 L = 1 dm³)." />
+      <unit name="deciliter" abbr="dl" lf="0.1" />
+      <unit name="milliliter" abbr="ml" lf="0.001" />
+      <unit name="peck" abbr="pk" lf="8.809768" info="A peck is an imperial and U.S. customary unit of dry volume, equivalent in each of these systems to 8 dry quarts, or 16 dry pints." />
+      <unit name="pint(UK)" abbr="pt" lf="0.568261" />
+      <unit name="pint, dry(US)" abbr="pt" lf="0.55061" />
+      <unit name="pint, liquid(US)" abbr="pt" lf="0.473176475" />
+      <unit name="quart(UK)" abbr="qt" lf="1.136523" />
+      <unit name="quart, dry(US)" abbr="qt" lf="1.136523" />
+      <unit name="quart, liquid(US)" abbr="qt" lf="1.136523" />
+      <unit name="tablespoon(US)" abbr="tbsp" lf="0.014787" info="A measure of volume used in cooking. It has various values around the world." />
+      <unit name="teaspoon" abbr="tsp" lf="0.004929" info="Is used as a unit of volume, especially in cooking recipes and pharmaceutic prescriptions. 1 tablespoon = 3 teaspoons (4 in Australia)." />
+    </category>
+    <category name="Time">
+      <unit name="century" abbr="" lf="3.15569259936e9" info="1 century = 100 years." />
+      <unit name="day" abbr="" lf="86400" />
+      <unit name="decade" abbr="" lf="3.15569259936e8" info="1 decade = 10 years." />
+      <unit name="hour" abbr="h" lf="3600" />
+      <unit name="millennium" abbr="" lf="3.15569259936e10" info="1 millennium = 1000 years." />
+      <unit name="minute" abbr="min" lf="60" />
+      <unit name="month" abbr="" lf="2629743.8328" info="Here: 1 month =  1/12 year.  January = 31 days  February, 28 days, 29 in leap years, or 30 on certain occasions in related calendars March, 31 days April, 30 days May, 31 days June, 30 days July, 31 days August, 31 days September, 30 days October, 31 days November, 30 days December, 31 days" />
+      <unit name="fortnight" abbr="" lf="1.2096e6" />
+      <unit name="second" abbr="s" lf="1" info="The second is the SI base unit of time and is defined as the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium-133 atom. This definition refers to a caesium atom at rest at a temperature of 0 K" />
+      <unit name="millisecond" abbr="ms" lf="0.001" />
+      <unit name="microsecond" abbr="μs" lf="0.000001" />
+      <unit name="nanosecond" abbr="ns" lf="0.000000001" />
+      <unit name="picosecond" abbr="ps" lf="0.000000000001" />
+      <unit name="week" abbr="" lf="604800" />
+      <unit name="year" abbr="" lf="3.15569259936e7" info="Here: 1 year = 365.242199 days." />
+      <unit name="svedberg" abbr="S" lf="0.0000000000001" info="A Svedberg (symbol S, sometimes Sv, not to be confused with Sv for Sverdrup) is a non-SI physical unit used to characterize the behaviour of a particle type in ultracentrifugation. Bigger particles have higher svedberg values. It is a unit of time amounting to 10-13 s or 100 fs." />
+    </category>
+    <category name="SI Prefixes">
+      <unit name="yotta" abbr="Y" lf="1e24" info="Septillion" />
+      <unit name="zetta" abbr="Z" lf="1e21" info="Sextillion" />
+      <unit name="exa" abbr="E" lf="1e18" info="Quintillion" />
+      <unit name="peta" abbr="P" lf="1e15" info="Quadrillion" />
+      <unit name="tera" abbr="T" lf="1e12" info="Trillion" />
+      <unit name="giga" abbr="G" lf="1e9" info="Billion" />
+      <unit name="mega" abbr="M" lf="1e6" info="Million" />
+      <unit name="kilo" abbr="k" lf="1e3" info="Thousand" />
+      <unit name="hecto" abbr="h" lf="1e2" info="Hundred" />
+      <unit name="deca" abbr="da" lf="1e1" info="Ten" />
+      <unit name="deci" abbr="d" lf="1e-1" info="Tenth" />
+      <unit name="centi" abbr="c" lf="1e-2" info="Hundredth" />
+      <unit name="milli" abbr="m" lf="1e-3" info="Thousandth" />
+      <unit name="micro" abbr="µ" lf="1e-6" info="Millionth" />
+      <unit name="nano" abbr="n" lf="1e-9" info="Billionth" />
+      <unit name="pico" abbr="p" lf="1e-12" info="Trillionth" />
+      <unit name="femto" abbr="f" lf="1e-15" info="Quadrillionth" />
+      <unit name="atto" abbr="a" lf="1e-18" info="Quintillionth" />
+      <unit name="zepto" abbr="z" lf="1e-21" info="Sextillionth" />
+      <unit name="yocto" abbr="y" lf="1e-24" info="Septillionth" />
+    </category>
+    <category name="Pressure">
+      <unit name="atmosphere" abbr="atm" lf="101325" cf="0" info="an atmosphere (symbol: atm) or standard atmosphere is a unit of pressure roughly equal to the average atmospheric pressure at sea level on Earth. It is defined as 101.325 kPa and equal to the pressure under 760 mm of mercury" />
+      <unit name="pascal" abbr="Pa" lf="1" cf="0" info="The pascal is equivalent to one newton per square meter, and was used in SI under that name before the name pascal was adopted by the 14th CGPM in 1971. The same unit is also used for stress, Young's modulus, and tensile strength" />
+      <unit name="bar" abbr="bar" lf="100000" cf="0" />
+      <unit name="dyn/cm²" abbr="dyn/cm²" lf="0.1" cf="0" info="1 dyne per square centimetre is equil of 1 Barye (symbol: Ba) is the centimetre-gram-second (CGS) unit of pressure" />
+      <unit name="foot of water" abbr="ftH2O" lf="2989.06692" cf="0" />
+      <unit name="hectopascal" abbr="hPa" lf="100" cf="0" />
+      <unit name="iches of water" abbr="inH2O" lf="249.08891" cf="0" />
+      <unit name="inches of mercury" abbr="inHg" lf="3386.388" cf="0" info="Inches of mercury is a non-SI unit for pressure. It is defined as the pressure exerted by a column of mercury of 1 inch in height at 0 °C at the standard acceleration of gravity. 1 inHg = 3386.389 pascals at 0 °C." />
+      <unit name="kgf/cm²" abbr="kgf/cm²" lf="98066.5" cf="0" info="kilogram-force, or kilopond, per square centimetre (technical atmosphere)" />
+      <unit name="kgf/m²" abbr="kgf/m²" lf="9.80665" cf="0" info="kilogram-force, or kilopond, per square meter" />
+      <unit name="kilopascal" abbr="kPa" lf="1000" cf="0" />
+      <unit name="meter of water" abbr="mH2O" lf="9806.65" cf="0" />
+      <unit name="microbar" abbr="µbar" lf="0.1" cf="0" />
+      <unit name="milibar" abbr="mbar" lf="100" cf="0" />
+      <unit name="millimeter of mercury" abbr="mmHg" lf="133.322" cf="0" />
+      <unit name="millimeter of water" abbr="mmH2O" lf="9.80665" cf="0" />
+      <unit name="N/m²" abbr="N/m²" lf="1" cf="0" />
+      <unit name="N/cm²" abbr="N/cm²" lf="10000" cf="0" />
+      <unit name="N/mm²" abbr="N/mm²" lf="1e+6" cf="0" />
+      <unit name="lbf/ft²" abbr="lbm/ft²" lf="47.88026" cf="0" info="pound-force per square foot" />
+      <unit name="lbf/in²" abbr="psi" lf="6894.76" cf="0" info="The pound-force per square inch (symbol: lbf/in²) is a non-SI unit of pressure based on avoirdupois units. In casual English language use it is rendered as 'pounds per square inch', abbreviated to psi with little distinction between 'mass' and 'force'" />
+      <unit name="technical atmosphere" abbr="at" lf="98066.5" cf="0" info="A technical atmosphere is a non-SI unit of pressure equal to 1 kilogram-force per square centimeter, i.e. 98.066 5 kilopascals (kPa) or about 0.96784 standard atmospheres" />
+      <unit name="torr" abbr="torr" lf="133.322" cf="0" info="The torr (symbol: Torr) or millimetre of mercury (mmHg) is a non-SI unit of pressure. It is the atmospheric pressure that supports a column of mercury 1 millimetre high" />
+    </category>
+    <category name="Force">
+      <unit name="dyne" abbr="dyn" lf="0.00001" cf="0" info="The dyne is a unit of force specified in the centimetre-gram-second (cgs) system of units. One dyne is equal to exactly 10-5 newtons. The dyne can be defined as 'the force required to accelerate a mass of one gram at a rate of one centimetre per second squared'" />
+      <unit name="gram-force" abbr="gf" lf="0.00980665" cf="0" />
+      <unit name="joule/meter" abbr="J/m" lf="1" cf="0" />
+      <unit name="kg·m/s²" abbr="kg·m/s²" lf="1" cf="0" info="Same as 1 newton" />
+      <unit name="kilogram-force" abbr="kgf" lf="9.80665" cf="0" />
+      <unit name="kilopond" abbr="kp" lf="9.80665" cf="0" info="The deprecated unit kilogram-force (kgf) or kilopond (kp) is defined as the force exerted by one kilogram of mass in standard Earth gravity. Although the gravitational pull of the Earth varies as a function of position on earth, it is here defined as exactly 9.80665 m/s². So one kilogram-force is by definition equal to 9.80665 newtons" />
+      <unit name="kilopound-force" abbr="kipf" lf="4448.2216152548" cf="0" />
+      <unit name="lb·ft/s²" abbr="lb·ft/s²" lf="0.138254954376" cf="0" info="Same as 1 poundal" />
+      <unit name="newton" abbr="N" lf="1" cf="0" info="A newton is the amount of force required to accelerate a mass of one kilogram at a rate of one meter per second squared. In addition, 1N is the force of gravity on a small apple on Earth" />
+      <unit name="ounce-force" abbr="ozf" lf="0.27801385095342" cf="0" />
+      <unit name="pond" abbr="p" lf="0.00980665" cf="0" />
+      <unit name="pound-force" abbr="lbf" lf="4.448222" cf="0" info="The pound-force is a non-SI unit of force or weight. The pound-force is equal to a mass of one avoirdupois pound (which is currently defined as exactly 0.45359237 kilogram) multiplied by the standard acceleration due to gravity on Earth. (The pound-force is thus roughly the force exerted due to gravity by a mass of one pound at the surface of the Earth)" />
+      <unit name="poundal" abbr="pdl" lf="0.138254954376" cf="0" info="The poundal is a non-SI unit of force. It is a part of the absolute foot-pound-second system of units, a coherent subsystem of English units introduced in 1879, and one of several specialized subsystems of mechanical units used as aids in calculations. It is defined as 1 lb·ft/s²" />
+      <unit name="tonne-force(metric)" abbr="tf" lf="9806.65" cf="0" />
+      <unit name="ton-force(UK)" abbr="tf(UK)" lf="9964.0164181707" cf="0" />
+      <unit name="ton-force(US)" abbr="tf(US)" lf="8896.443230521" cf="0" />
+    </category>
+    <category name="Torque">
+      <unit name="newton·meter" abbr="N·m" lf="1" cf="0" />
+      <unit name="kilogram-force·meter" abbr="kgf·m" lf="9.80665" cf="0" />
+      <unit name="dyne·centimeter" abbr="dyn·cm" lf="1e-7" cf="0" />
+      <unit name="pound-force·inch" abbr="lbf·in" lf="0.112985" cf="0" />
+      <unit name="pound-force·foot" abbr="lbf·ft" lf="1.35582" cf="0" />
+      <unit name="ounce-force·inch" abbr="ozf·in" lf="0.00706155" cf="0" />
+    </category>
+    <category name="Energy">
+      <unit name="BTU(IT)" abbr="dyn" lf="1055.056" cf="0" info="The British thermal unit (BTU or Btu) is a unit of energy used in the United States. In most other areas, it has been replaced by the SI unit of energy, the joule (J). A Btu is defined as the amount of heat required to raise the temperature of one pound avoirdupois of water by one degree Fahrenheit. 143 Btu is required to melt a pound of ice. As is the case with the calorie, several different definitions of the Btu exist, here ISO BTU is used  1 ISO BTU = 1055.056 J" />
+      <unit name="BTU(th)" abbr="" lf="1054.35" cf="0" />
+      <unit name="BTU(mean)" abbr="" lf="1055.87" cf="0" />
+      <unit name="calorie(IT)" abbr="cal" lf="4.1868" cf="0" info="The small calorie or gram calorie approximates the energy needed to increase the temperature of 1 g of water by 1C. Here the definition adopted by the Fifth International Conference on Properties of Steam (London, July 1956) is used. 1 cal = 4.1868 J exactly." />
+      <unit name="calorie(th)" abbr="" lf="4.184" cf="0" />
+      <unit name="calorie(mean)" abbr="" lf="4.19002" cf="0" />
+      <unit name="calorie(food)" abbr="" lf="4186" cf="0" />
+      <unit name="dyne·centimeter" abbr="dyne·cm" lf="1.0e-7" cf="0" />
+      <unit name="electronvolt" abbr="eV" lf="1.60217733e-19" cf="0" info="The electronvolt is the amount of kinetic energy gained by a single unbound electron when it passes through an electrostatic potential difference of one volt, in vacuum" />
+      <unit name="erg" abbr="erg" lf="1e-07" cf="0" info="An erg is the unit of energy and mechanical work in the centimetre-gram-second (CGS) system of units. Its name is derived from the Greek word meaning 'work'. The erg is a quite small unit, equal to a force of one dyne exerted for a distance of one centimetre" />
+      <unit name="ft·lbf" abbr="ft·lbf" lf="1.35501355" cf="0" info="The foot-pound force is a U.S. customary unit of work, or energy. It is frequently abbreviated incorrectly to foot-pounds. It is also called a dynam" />
+      <unit name="ft·pdl" abbr="ft·pdl" lf="0.042194092" cf="0" />
+      <unit name="gigajoule" abbr="GJ" lf="1e+9" cf="0" />
+      <unit name="horsepower-hours" abbr="hph" lf="2684520" cf="0" />
+      <unit name="inch pound-force" abbr="in lbf" lf="0.112985" cf="0" />
+      <unit name="joule" abbr="J" lf="1" cf="0" info="The joule is a derived unit defined as the work done or energy required, to exert a force of one newton for a distance of one metre, so the same quantity may be referred to as a newton metre or newton-metre with the symbol N·m. However, the newton metre is usually used as a measure of torque, not energy" />
+      <unit name="kilojoule" abbr="kJ" lf="1000" cf="0" />
+      <unit name="kilocalorie" abbr="kcal" lf="4184.0" cf="0" />
+      <unit name="kilowatt-hour" abbr="kWh" lf="3600000" cf="0" />
+      <unit name="litre-atmosphere" abbr="litre-atm" lf="101.3253354" cf="0" />
+      <unit name="megajoule" abbr="MJ" lf="1e+6" cf="0" />
+      <unit name="therms" abbr="" lf="105505585.257348" cf="0" />
+      <unit name="watt-hour" abbr="Wh" lf="3600" cf="0" info="One watt-hour is equivalent to one watt of power used for one hour. This is equivalent to 3,600 joules. For example, a sixty watt light bulb uses 60 watt-hours of energy every hour" />
+    </category>
+    <category name="Power">
+      <unit name="BTU/hour" abbr="B/h" lf="0.29301067" cf="0" />
+      <unit name="BTU/minute" abbr="B/min" lf="17.56863" cf="0" />
+      <unit name="BTU/second" abbr="B/s" lf="1055.056" cf="0" />
+      <unit name="calorie/second" abbr="cal/s" lf="4.183076" cf="0" />
+      <unit name="kilocalorie/second" abbr="kcal/s" lf="4183.076" cf="0" />
+      <unit name="erg/second" abbr="erg/s" lf="1e-7" cf="0" />
+      <unit name="ft·lbf/second" abbr="ft·lbf/s" lf="1.355840282" cf="0" />
+      <unit name="ft·lbf/minute" abbr="ft·lbf/min" lf="0.022597" cf="0" />
+      <unit name="gigawatt" abbr="GW" lf="1e+09" cf="0" />
+      <unit name="horsepower" abbr="hp" lf="745.69987158227022" cf="0" info="The mechanical horsepower is originally proposed by James Watt in 1782." />
+      <unit name="kilowatt" abbr="kW" lf="1000" cf="0" />
+      <unit name="megawatt" abbr="MW" lf="1e+06" cf="0" />
+      <unit name="volt-ampere" abbr="VA" lf="1" cf="0" info="A volt-ampere in electrical terms, means the amount of apparent power in an alternating current circuit equal to a current of one ampere at an emf of one volt. It is dimensionally equivalent to watts" />
+      <unit name="watt" abbr="W" lf="1" cf="0" info="One watt is one joule of energy per second" />
+      <unit name="ton refrigeration" abbr="tonr" lf="3517" cf="0" />
+    </category>
+    <category name="Density">
+      <unit name="attogram/liter" abbr="ag/l" lf="1e-18" cf="0" />
+      <unit name="centigram/liter" abbr="cg/l" lf="0.01" cf="0" />
+      <unit name="decigram/liter" abbr="dg/l" lf="0.1" cf="0" />
+      <unit name="dekagram/liter" abbr="dag/l" lf="10" cf="0" />
+      <unit name="exagram/liter" abbr="Eg/l" lf="1e+18" cf="0" />
+      <unit name="femtogram/liter" abbr="fg/l" lf="1e-15" cf="0" />
+      <unit name="hectogram/liter" abbr="hg/l" lf="100" cf="0" />
+      <unit name="gigagram/liter" abbr="Gg/l" lf="1e+9" cf="0" />
+      <unit name="gram/cubic meter" abbr="g/m³" lf="0.001" cf="0" />
+      <unit name="gram/cubic centimeter" abbr="g/cm³" lf="1000" cf="0" />
+      <unit name="gram/cubic millimeter" abbr="g/mm³" lf="1e+6" cf="0" />
+      <unit name="gram/liter" abbr="g/l" lf="1" cf="0" />
+      <unit name="grain/gallon(US)" abbr="gr/gal(US)" lf="0.017118061045271" cf="0" />
+      <unit name="grain/gallon(UK)" abbr="gr/gal(UK)" lf="0.0142537675233" cf="0" />
+      <unit name="grain/cubic foot" abbr="gr/ft³" lf="0.002288351910566" cf="0" />
+      <unit name="kilogram/cubic meter" abbr="kg/m³" lf="1" cf="0" />
+      <unit name="kilogram/cubic centimeter" abbr="kg/cm³" lf="1e+06" cf="0" />
+      <unit name="kilogram/cubic millimeter" abbr="kg/mm³" lf="1e+09" cf="0" />
+      <unit name="kilogram/liter" abbr="kg/l" lf="1000" cf="0" />
+      <unit name="milligram/cubic meter" abbr="mg/m³" lf="1e-6" cf="0" />
+      <unit name="milligram/cubic centimeter" abbr="mg/cm³" lf="1" cf="0" />
+      <unit name="milligram/cubic millimeter" abbr="mg/mm³" lf="1000" cf="0" />
+      <unit name="megagram/liter" abbr="Mg/l" lf="1e+6" cf="0" />
+      <unit name="milligram/liter" abbr="mg/l" lf="0.001" cf="0" />
+      <unit name="microgram/liter" abbr="µm/l" lf="1e-6" cf="0" />
+      <unit name="nanogram/liter" abbr="ng/l" lf="1e-9" cf="0" />
+      <unit name="ounce/cubic inch" abbr="oz/in³" lf="1729.9940443869" cf="0" />
+      <unit name="ounce/cubic foot" abbr="oz/ft³" lf="1.0011539608721" cf="0" />
+      <unit name="ounce/gallon(US)" abbr="oz/gal(US)" lf="7.4891517072952" cf="0" />
+      <unit name="ounce/gallon(UK)" abbr="oz/gal(UK)" lf="6.2360232914439" cf="0" />
+      <unit name="petagram/liter" abbr="Pg/l" lf="1e+15" cf="0" />
+      <unit name="picogram/liter" abbr="pg/l" lf="1e-12" cf="0" />
+      <unit name="pound/cubic inch" abbr="lb/in³" lf="27679.904710191" cf="0" />
+      <unit name="pound/cubic foot" abbr="lb/ft³" lf="16.018463373953" cf="0" />
+      <unit name="pound cubic yard" abbr="lb/yd³" lf="0.59327642125778" cf="0" />
+      <unit name="pound/gallon(US)" abbr="lb/gal(US)" lf="119.82642731672" cf="0" />
+      <unit name="pound/gallon(UK)" abbr="lb/gal(UK)" lf="99.776372663102" cf="0" />
+      <unit name="psi/1000 feet" abbr="psi/1000 ft" lf="2.3066587258492" cf="0" />
+      <unit name="slug/cubic foot" abbr="slug/ft³" lf="515.3788183932" cf="0" />
+      <unit name="teragram/liter" abbr="Tg/l" lf="1e+12" cf="0" />
+      <unit name="tonne/cubic meter" abbr="t/m³" lf="1000" cf="0" />
+      <unit name="tonne/cubic millimeter" abbr="t/mm³" lf="1e12" cf="0" />
+      <unit name="ton(short)/cubic yard" abbr="ton(short)/yd³" lf="1186.552842515" cf="0" />
+      <unit name="ton(long)/cubic yard" abbr="ton(long)/yd³" lf="1328.9391836174" cf="0" />
+    </category>
+    <category name="Dynamic Viscosity">
+      <unit name="centipoise" abbr="cPo" lf="1e-3" cf="0" />
+      <unit name="dyne second/square centimeter" abbr="dyn·s/cm²" lf="0.1" cf="0" />
+      <unit name="gram-force second/square centimeter" abbr="gf·s/cm²" lf="98.0665" cf="0" />
+      <unit name="gram/centimeter second" abbr="g/cm·s" lf="0.1" cf="0" />
+      <unit name="kilogram force second/square meter" abbr="kgf·s/m²" lf="9.80665" cf="0" />
+      <unit name="kilogram/meter second" abbr="kg/m·s" lf="1" cf="0" />
+      <unit name="newton second/square meter" abbr="N·s/m²" lf="1" cf="0" />
+      <unit name="pascal second" abbr="Pa·s" lf="1" cf="0" />
+      <unit name="poise" abbr="Po" lf="0.1" cf="0" info="The poise is the unit of dynamic viscosity in the centimetre gram second system of units" />
+      <unit name="poiseuille" abbr="Pa·s" lf="1" cf="0" />
+      <unit name="pound-force second/square foot" abbr="lbf·s/ft²" lf="47.8803" cf="0" />
+      <unit name="pound-mass/foot second" abbr="lbm/ft·s" lf="1.48816" cf="0" />
+      <unit name="pound-mass/inch second" abbr="lbm/in·s" lf="17.858" cf="0" />
+      <unit name="reynolds (reyns)" abbr="reyn" lf="6894.76" cf="0" />
+      <unit name="slug/foot second" abbr="slug/ft·s" lf="47.8803" cf="0" />
+      <unit name="slug/inch second" abbr="slug/in·s" lf="574.563" cf="0" />
+    </category>
+    <category name="Kinematic Viscosity">
+      <unit name="meter²/second" abbr="m²/s" lf="1" />
+      <unit name="centimeter²/second" abbr="cm²/s" lf="0.0001" info="Also known as stoke."/>
+      <unit name="meter²/hour" abbr="m²/h" lf="0.000277778" />
+      <unit name="inch²/second" abbr="in²/s" lf="0.000645" />
+      <unit name="foot²/second" abbr="ft²/s" lf="0.092903" />
+      <unit name="foot²/hour" abbr="ft²/h" lf="2.5806e-5" />
+      <unit name="stoke" abbr="" lf="0.0001" />
+      <unit name="centistoke" abbr="cstoke" lf="1e-6" />
+    </category>
+    <category name="Temperature">
+      <unit name="Celsius" abbr="°C" lf="1" cf="273.15" info="The Celsius scale sets 0.01 °C to be at the triple point of water and a degree Celsius to be 1/273.16 of the difference in temperature between the triple point of water and absolute zero. Until 1954 the scale was defined with the freezing point of water at 0 °C and the boiling point at 100 °C at standard atmospheric pressure" />
+      <unit name="Delisle" abbr="°De" lf="-0.66666666666666666666666666666667" cf="373.15" info="The Delisle scale is a temperature scale invented in 1732 by the French astronomer Joseph-Nicolas Delisle (16881768). It is similar to that of Reaumur" />
+      <unit name="Electronvolt" abbr="eV" lf="11605" cf="0" info="In some fields, plasma physics in particular, the electronvolt (eV) is used as a unit of 'temperature'" />
+      <unit name="Fahrenheit" abbr="°F" lf="0.55555555555555555555555555555556" cf="255.37222222222222222222222222222" info="In this scale, the freezing point of water is 32 degrees Fahrenheit (written as 32 °F), and the boiling point is 212 degrees, placing the boiling and melting points of water 180 degrees apart. Thus the unit of this scale, a degree Fahrenheit, is 5/9ths of a kelvin (which is a degree Celsius), and negative 40 degrees Fahrenheit is equal to negative 40 degrees Celsius" />
+      <unit name="Kelvin" abbr="K" lf="1" cf="0" info="The kelvin, unit of thermodynamic temperature is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water. [13th CGPM (1967), Resolution 4]" />
+      <unit name="Rankine" abbr="°Ra" lf="0.55555555555555555555555555555556" cf="0" info="Like Kelvin, Rankine zero is absolute zero, but Fahrenheit degrees are used. As a result, a difference of 1°R is equal to a difference of 1°F, but 0°R is 459.67°F" />
+      <unit name="Réaumur" abbr="°Ré" lf="1.25" cf="273.15" info="The freezing point of water is 0 degrees Réaumur, the boiling point 80 degrees Réaumur. Hence a degree Reaumur is 1.25 degrees Celsius or kelvins. The Réaumur temperature scale is also known as the octogesimal division (division octogesimale)" />
+      <unit name="Rømer" abbr="°Rø" lf="1.9047619047619047619047619047619" cf="258.86428571428571428571428571429" info="Rømer is a disused temperature scale named after the Danish astronomer Ole Christensen Rømer, who proposed it in 1701" />
+    </category>
+    <category name="Luminance">
+      <unit name="apostilb" abbr="asb" lf="0.31830988618379067153776752674503" />
+      <unit name="blondel" abbr="" lf="0.31830988618379067153776752674503" />
+      <unit name="candela/square meter" abbr="cd/m²" lf="1" info="candela per square meter also called Nits in the USA" />
+      <unit name="candela/square inch" abbr="cd/in²" lf="1550.0031000062000124000248000496" />
+      <unit name="candela/square foot" abbr="cd/ft²" lf="10.7639104167097223083335055559" />
+      <unit name="footlambert" abbr="fL" lf="3.4262590996353905269167459616489" />
+      <unit name="lambert" abbr="L" lf="3183.0988618379067153776752674503" />
+      <unit name="nit" abbr="nit" lf="1" />
+      <unit name="skot" abbr="skot" lf="3.1830988618379067153776752674503e-4" />
+      <unit name="stilb" abbr="sb" lf="1e4" />
+    </category>
+    <category name="Illuminance">
+      <unit name="lux" abbr="lx" lf="1" />
+      <unit name="footcandle" abbr="fc" lf="10.7639" />
+      <unit name="lumen/foot²" abbr="lm/ft²" lf="10.7639" />
+      <unit name="lumen/meter²" abbr="lm/m²" lf="1" />
+    </category>
+    <category name="Frequency and Wavelength">
+      <unit name="cycle/second" abbr="" lf="1" cf="0" />
+      <unit name="nanohertz" abbr="nHz" lf="1e-9" cf="0" />
+      <unit name="millihertz" abbr="mHz" lf="0.001" cf="0" />
+      <unit name="hertz" abbr="Hz" lf="1" cf="0" info="The hertz (symbol: Hz) is the SI unit of frequency. Its base unit is 1/s (also called inverse seconds). In English, hertz is used as both singular and plural. One hertz means one cycle per second." />
+      <unit name="kilohertz" abbr="kHz" lf="1000" cf="0" />
+      <unit name="megahertz" abbr="MHz" lf="1e+6" cf="0" />
+      <unit name="gigahertz" abbr="GHz" lf="1e+9" cf="0" />
+      <unit name="Electron Compton wavelength" abbr="" lf="1.23558979e+20" cf="0" inverse="true" />
+      <unit name="Proton Compton wavelength" abbr="" lf="2.268731533e+23" cf="0" inverse="true" />
+      <unit name="Neutron Compton wavelength" abbr="" lf="2.271858745e+23" cf="0" inverse="true" />
+      <unit name="wavelength in gigametres" abbr="λ [Gm]" lf="0.299792458" cf="0" inverse="true" />
+      <unit name="wavelength in megametres" abbr="λ [Mm]" lf="299.792458" cf="0" inverse="true" />
+      <unit name="wavelength in kilometres" abbr="λ [km]" lf="299792.458" cf="0" inverse="true" />
+      <unit name="wavelength in metres" abbr="λ [m]" lf="299792458" cf="0" inverse="true" />
+      <unit name="wavelength in decimetres" abbr="λ [dm]" lf="2997924580" cf="0" inverse="true" />
+      <unit name="wavelength in centimetres" abbr="λ [cm]" lf="2.99792458e+10" cf="0" inverse="true" />
+      <unit name="wavelength in millimetres" abbr="λ [mm]" lf="2.99792458e+11" cf="0" inverse="true" />
+      <unit name="wavelength in inches" abbr="λ [in]" lf="11802852677.11814292" cf="0" inverse="true" />
+      <unit name="wavelength in feet" abbr="λ [ft]" lf="983571056.42651191" cf="0" inverse="true" />
+      <unit name="Sound, wavelength in metres ( 343m/s )" abbr="" lf="343" cf="0" inverse="true" />
+      <unit name="Sound, wavelength in inches ( 343m/s )" abbr="" lf="13503.93700782" cf="0" inverse="true" />
+      <unit name="Sound, wavelength in feet ( 343m/s )" abbr="" lf="1125.328083985" cf="0" inverse="true" />
+    </category>
+    <category name="Charge">
+      <unit name="ampere-hour"                 abbr="A·h"   lf="3600"                cf="0" />
+      <unit name="ampere-minute"               abbr="A·min" lf="60"                  cf="0" />
+      <unit name="ampere-second"               abbr="A·s"   lf="1"                   cf="0" />
+      <unit name="coulomb"                     abbr="C"     lf="1"                   cf="0" info="The coulomb (symbol: C) is the SI unit of electric charge. It is named after Charles-Augustin de Coulomb. 1 coulomb is the amount of electric charge carried by a current of 1 ampere flowing for 1 second."/>
+      <unit name="elementary charge"           abbr="e"     lf="1.60217733e-19"      cf="0" />
+      <unit name="EMU of charge"               abbr=""      lf="10"                  cf="0" />
+      <unit name="ESU of charge"               abbr=""      lf="3.335640951982e-10"  cf="0" />
+      <unit name="faraday(based on carbon-12)" abbr=""      lf="96485.309000004"     cf="0" />
+      <unit name="franklin"                    abbr="Fr"    lf="3.335640951982e-10"  cf="0" />
+      <unit name="kilocoulomb"                 abbr="kC"    lf="1000"                cf="0" />
+      <unit name="megacoulomb"                 abbr="MC"    lf="1e+6"                cf="0" />
+      <unit name="millicoulomb"                abbr="mC"    lf="0.001"               cf="0" />
+      <unit name="nanocoulomb"                 abbr="nC"    lf="1e-9"                cf="0" />
+      <unit name="statcoulomb"                 abbr="stC"   lf="3.335640951982e-10"  cf="0" />
+    </category>
+    <category name="Current">
+      <unit name="ampere"               abbr="A"        lf="1"            cf="0" info="The ampere (symbol: A) is a unit of electric current, or amount of electric charge per second. The ampere is an SI base unit, and is named after André-Marie Ampère, one of the main discoverers of electromagnetism."/>
+      <unit name="abampere"             abbr="abA"      lf="10"           cf="0" />
+      <unit name="biot"                 abbr="Bi"       lf="10"           cf="0" />
+      <unit name="CGS e.m. unit"        abbr="CGS e.m." lf="10"           cf="0" />
+      <unit name="CGS e.s. unit"        abbr="CGS e.s"  lf="3.335641e-10" cf="0" />
+      <unit name="EMU of current"       abbr="EMU"      lf="10"           cf="0" />
+      <unit name="ESU of current"       abbr="ESU"      lf="3.335641e-10" cf="0" />
+      <unit name="kiloampere"           abbr="kA"       lf="1000"         cf="0" />
+      <unit name="milliampere"          abbr="mA"       lf="0.001"        cf="0" />
+      <unit name="statampere"           abbr="stA"      lf="3.335641e-10" cf="0" />
+    </category>
+    <category name="Conductivity">
+      <unit name="abmho/centimeter"               abbr="Abmho/cm"    lf="1e+11"                cf="0" />
+      <unit name="abmho/meter"                    abbr="Abmho/m"     lf="1e+9"                 cf="0" />
+      <unit name="mho/centimeter"                 abbr="mho/cm"      lf="100"                  cf="0" />
+      <unit name="mho/meter"                      abbr="mho/m"       lf="1"                    cf="0" info="mho is written as the opposite of ohm, and is equal to the siemens unit." />
+      <unit name="picosiemens/meter"              abbr="pS/m"        lf="1e-12"                cf="0" />
+      <unit name="siemens/meter"                  abbr="S/m"         lf="1"                    cf="0" info="Electrical conductance between opposite faces of a 1-metre cube of material."/>
+      <unit name="statmho/centimeter"             abbr="statmho/cm"  lf="1.11265345599945e-10" cf="0" />
+      <unit name="statmho/meter"                  abbr="statmho/m"   lf="1.11265345599945e-12" cf="0" />
+    </category>
+    <category name="Voltage">
+      <unit name="volt" abbr="V" lf="1" cf="0" />
+      <unit name="millivolt" abbr="mV" lf="0.001" cf="0" />
+      <unit name="microvolt" abbr="µV" lf="1e-6" cf="0" />
+      <unit name="abvolt" abbr="abV" lf="1e-8" cf="0" info="Also known as electromagnetic unit of potential (EMU)." />
+      <unit name="statvolt" abbr="sV" lf="299.792" cf="0" info="Also known as electrostatic unit of potential (ESU)." />
+    </category>
+    <category name="Magnetic Flux">
+      <unit name="webber" abbr="Wb" lf="1" cf="0" />
+      <unit name="maxwell" abbr="Wb" lf="1e-8" cf="0" />
+      <unit name="unit pole" abbr="" lf="1.25664e-7" cf="0" />
+    </category>
+    <category name="Magnetic Induction">
+      <unit name="gamma" abbr="Γ"     lf="0.00001" cf="0" info="1 gamma is a unit of magnetic flux density, 1 gamma = 1e-9 tesla or 1 nanotesla"/>
+      <unit name="gauss" abbr="G"     lf="1"       cf="0" info="The gauss is the cgs unit of magnetic flux density or magnetic induction (B). One gauss is defined as one maxwell per square centimetre"/>
+      <unit name="tesla" abbr="T"     lf="10000"   cf="0" info="The tesla is the value of the total magnetic flux (a magnet's 'power') divided by area. 1 T = 1 Wb/m²"/>
+      <unit name="Wb/m²" abbr="Wb/m²" lf="10000"   cf="0" info="1 weber per square metre. The webe (Wb) is a the SI unit of magnetic flux"/>
+    </category>
+    <category name="Capacitance">
+      <unit name="farade" abbr="F" lf="1" />
+      <unit name="microfarade" abbr="µF" lf="1e-6" />
+      <unit name="picofarade" abbr="pF" lf="1e-12" />
+      <unit name="statfarade" abbr="sF" lf="1.11265e-12" info="Also known as electrostatic unit of capacitance (ESU)." />
+      <unit name="abafarade" abbr="aF" lf="1e9" info="Also known as electromagnetic unit of capacitance (EMU)." />
+    </category>
+    <category name="Inductance">
+      <unit name="henry" abbr="H" lf="1" />
+      <unit name="microhenry" abbr="µH" lf="1e-6" />
+      <unit name="picohenry" abbr="pH" lf="1e-12" />
+      <unit name="stathenry" abbr="sH" lf="8.98755e+11" info="Also known as electrostatic unit of inductance (ESU)." />
+      <unit name="abhenry" abbr="aH" lf="1e-9" info="Also known as electromagnetic unit of inductance (EMU)." />
+    </category>
+</convert>
