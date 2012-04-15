@@ -23,7 +23,14 @@ Convertor is written in object pascal, and is using the
 [http://lazarus.freepascal.org | Lazarus] widgets and library. So first go
 ahead and install Lazarus, it will install fpc with it.
 
-Now download the latest source code from the [/timeline | timeline] page. click
-on the artifact ID, and then download the source code as zip or tarball.
-
-Uncompress, open 'convertor.lpi' with lazarus, and compile. finito..
+Now there are two options:
+  #  The source code (and this web site..) is managed with a distributed source
+     control program called [http://www.fossil-scm.org | fossil]. It is very easy
+     to use and I really like it. Anyhow, go and download it, put it on the path,
+     and then get the whole repository with:
+     <pre>fossil clone http://convertor.moosht.org/ myconvertor.fossil</pre>
+  #  Download the latest source code from the [/timeline | timeline] page. Click
+     on the artifact ID, and then download the source code as zip or tarball.
+     Uncompress..
+     
+Open 'convertor.lpi' with lazarus, and compile. finito..
