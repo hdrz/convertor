@@ -21,8 +21,9 @@
 This a short howto explaining the use of the Convertor. Just follow it and
 in 3 minutes you can convert units back and forth..
 
-Fire up the application, and it should resemble the image on the right.
-<img class="scrnsht" src="conv-layout.png" align="right">
+Fire up the application, and it should resemble the next image (see the red numbers
+for the description that follows):
+<img class="scrnsht" src="conv-layout.png">
   1.  On this paticular image, the conversion is done from the left input box
       to the right, and the category and unit lists are visible. The direction
       of conversion is determined by placing the mouse in one of the input boxes.
@@ -39,7 +40,7 @@ Fire up the application, and it should resemble the image on the right.
 
 When the lists are hidden the Converter window takes minimum screen real estate.
 The next image shows the Convertor with the lists hidden.
-<img class="scrnsht" src="conv-min-layout.png" align="right">
+<img class="scrnsht" src="conv-min-layout.png">
 
 On this image the conversion is done from right to left, notice the green arrow 
 has changed direction. Also visible is the popup menu which pops whenever the

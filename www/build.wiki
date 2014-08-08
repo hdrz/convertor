@@ -28,9 +28,12 @@ Now there are two options:
      control program called [http://www.fossil-scm.org | fossil]. It is very easy
      to use and I really like it. Anyhow, go and download it, put it on the path,
      and then get the whole repository with:
-     <pre>fossil clone http://convertor.moosht.org/ myconvertor.fossil</pre>
+     <pre>fossil clone http://convertor.moosht.org/index.cgi convertor.fossil</pre>
+     Now create a directory to hold the source code, <tt>cd</tt> into it and open
+     the repository with:
+     <pre>fossil open /path/to/convertor.fossil</pre>
   #  Download the latest source code from the [/timeline | timeline] page. Click
      on the artifact ID, and then download the source code as zip or tarball.
-     Uncompress..
+     Uncompress somewhere..
      
 Open 'convertor.lpi' with lazarus, and compile. finito..
