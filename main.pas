@@ -25,7 +25,7 @@ interface
 
 uses
   SysUtils, Forms, Controls, Dialogs, StdCtrls, Menus, ExtCtrls, IniPropStorage,
-  ComCtrls, Buttons, Classes, types, LResources, ClipBrd, unit1;
+  Buttons, Classes, types, LResources, ClipBrd, fpexprpars2, unit1;
 
 type
 
@@ -59,6 +59,7 @@ type
     procedure EditChange(Sender: TObject);
     procedure EditEnter(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
     procedure FormWindowStateChange(Sender: TObject);
     procedure IniFileRestoreProperties(Sender: TObject);
     procedure AutoCloseClick(Sender: TObject);
@@ -76,18 +77,32 @@ type
     procedure ToggleUnitsPanel(shw: shortstring);
   private
     { private declarations }
+    FExpParser: TFPExpressionParser;
+    FParserResult: TFPExpressionResult;
+    FFromVal: TEdit;
+    FToVal: TEdit;
+    FFromUnit: TUnitData;
+    FToUnit: TUnitData;
+    FUCat: TUnitCategory;
   public
     { public declarations }
   end;
 
-function IsStrANumber(const S: string): boolean;
-
 const
-  cABOUT = 'Convertor is a free unit converter.' + sLineBreak +
-    'By H. Raz ©2012' + sLineBreak +
-    'http://www.moosht.org/convertor' + sLineBreak + sLineBreak +
+  cABOUT =
+    'Convertor is a free unit converter.' + sLineBreak +
+    'By H. Raz ©2016' + sLineBreak +
+    'http://www.moosht.org/convertor' + sLineBreak +
+    sLineBreak +
+    'Simple expressions are supported:' + sLineBreak +
+    '  +, -, *, /,' + sLineBreak +
+    '  cos, sin, arctan, abs, sqr, sqrt, exp,' + sLineBreak +
+    '  ln, log, frac, int, round, trunc' + sLineBreak +
+    '  Angles are in radians.' + sLineBreak +
+    sLineBreak +
     'Using:' + sLineBreak +
-    ' - Up && Down blue arrows by Yusuke Kamiyamane (CC BY 3.0)' + sLineBreak +
+    ' - Up && Down blue arrows by' + sLineBreak +
+    '   Yusuke Kamiyamane (CC BY 3.0)' + sLineBreak +
     ' - Other icons by RRZE (CC BY-SA 3.0)';
 
 var
@@ -201,6 +216,13 @@ begin
   Toggle.LoadGlyphFromLazarusResource('up');
   ActiveSide := 'left';
   Shrink := False;
+  FExpParser := TFPExpressionParser.Create(nil);
+  FExpParser.Builtins := [bcMath];
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+  FExpParser.Free;
 end;
 
 
@@ -323,26 +345,32 @@ end;
 procedure TForm1.ChangeValue;
 // convert one value to the other
 var
-  UCat: TUnitCategory;
+  resultValue: double;
 begin
-  UCat := (CatListBox.Items.Objects[CatListBox.ItemIndex] as TUnitCategory);
-  if (UCat.LeftUnit <> nil) and (UCat.RightUnit <> nil) then
+  FUCat := (CatListBox.Items.Objects[CatListBox.ItemIndex] as TUnitCategory);
+  if (FUCat.LeftUnit <> nil) and (FUCat.RightUnit <> nil) then
   begin
     if ActiveSide = 'left' then
     begin
-      if (Edit1.Text <> '') and IsStrANumber(Edit1.Text) then
-        Edit2.Text := FloatToStr(UCat.RightUnit.ToUnit(
-          UCat.LeftUnit.FromUnit(StrToFloat(Edit1.Text))))
-      else
-        Edit2.Text := '';
+      FFromVal := Edit1;
+      FToVal := Edit2;
+      FFromUnit := FUCat.LeftUnit;
+      FToUnit := FUCat.RightUnit;
     end
     else
     begin
-      if (Edit2.Text <> '') and IsStrANumber(Edit2.Text) then
-        Edit1.Text := FloatToStr(UCat.LeftUnit.ToUnit(
-          UCat.RightUnit.FromUnit(StrToFloat(Edit2.Text))))
-      else
-        Edit1.Text := '';
+      FFromVal := Edit2;
+      FToVal := Edit1;
+      FFromUnit := FUCat.RightUnit;
+      FToUnit := FUCat.LeftUnit;
+    end;
+    // convert:
+    try
+      FExpParser.Expression := FFromVal.Text;
+      resultValue := ArgToFloat(FExpParser.Evaluate);
+      FToVal.Text := FloatToStr(FToUnit.ToUnit(FFromUnit.FromUnit(resultValue)));
+    except
+      FToVal.Text := '';
     end;
   end;
   IniFile.StoredValue['value'] := Edit1.Text;
@@ -380,17 +408,6 @@ begin
   UnitListBox.Items[i] := item.Name + ' (' + side + ')';
 end;
 
-function IsStrANumber(const S: string): boolean;
-  // check if the conversion is possible
-begin
-  Result := True;
-  try
-    StrToFloat(S);
-  except
-    Result := False;
-  end;
-end;
-
 procedure TForm1.ToggleUnitsPanel(shw: shortstring);
 // show and hide units panel
 begin
@@ -407,19 +424,6 @@ begin
     IniFile.StoredValue['unitsopen'] := BoolToStr(True);
   end;
 end;
-
-{
-procedure TForm1.SpecialDate;
-// change dialogs based on dates
-var
-md: shortstring;
-begin
-md := FormatDateTime('d/m', Date);
-  if md = '18/9' then
-    ....
-  ShowMessage(format('Today is: %s', [FormatDateTime('d/m', Date)]));
-end;
-}
 
 // load icons resource file
 initialization
