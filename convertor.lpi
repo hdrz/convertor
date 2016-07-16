@@ -17,7 +17,7 @@
       <RevisionNr Value="1"/>
       <StringTable CompanyName="H. Raz" FileDescription="Open source unit converter written in Lazarus" InternalName="Convertor" OriginalFilename="Convertor" ProductName="Convertor" ProductVersion=""/>
     </VersionInfo>
-    <BuildModes Count="2" Active="release">
+    <BuildModes Count="2" Active="debug">
       <Item1 Name="debug" Default="True"/>
       <Item2 Name="release">
         <CompilerOptions>
@@ -81,7 +81,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="16">
+    <Units Count="13">
       <Unit0>
         <Filename Value="convertor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -94,7 +94,8 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <CursorPos X="60" Y="28"/>
+        <TopLine Value="361"/>
+        <CursorPos Y="371"/>
         <UsageCount Value="246"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -109,213 +110,196 @@
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
-        <Filename Value="D:\Programs\lazarus\lcl\include\customedit.inc"/>
-        <TopLine Value="467"/>
-        <CursorPos X="27" Y="497"/>
-        <UsageCount Value="4"/>
-      </Unit3>
-      <Unit4>
-        <Filename Value="D:\Programs\lazarus\fpc\2.4.4\source\packages\symbolic\src\symbolic.pas"/>
-        <UnitName Value="Symbolic"/>
-        <CursorPos X="60" Y="35"/>
-        <UsageCount Value="3"/>
-      </Unit4>
-      <Unit5>
         <Filename Value="icons.lrs"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="10"/>
-      </Unit5>
-      <Unit6>
-        <Filename Value="main.lfm"/>
-        <UsageCount Value="3"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit6>
-      <Unit7>
+        <UsageCount Value="5"/>
+      </Unit3>
+      <Unit4>
         <Filename Value="D:\Programs\lazarus\lcl\dialogs.pp"/>
         <UnitName Value="Dialogs"/>
         <TopLine Value="492"/>
         <CursorPos X="31" Y="508"/>
-        <UsageCount Value="5"/>
-      </Unit7>
-      <Unit8>
+        <UsageCount Value="1"/>
+      </Unit4>
+      <Unit5>
         <Filename Value="D:\Programs\lazarus\lcl\include\messagedialogs.inc"/>
         <TopLine Value="232"/>
         <CursorPos X="9" Y="238"/>
-        <UsageCount Value="5"/>
-      </Unit8>
-      <Unit9>
+        <UsageCount Value="1"/>
+      </Unit5>
+      <Unit6>
         <Filename Value="D:\Programs\lazarus\lcl\include\lclintfh.inc"/>
         <TopLine Value="121"/>
         <CursorPos X="17" Y="137"/>
-        <UsageCount Value="5"/>
-      </Unit9>
-      <Unit10>
+        <UsageCount Value="1"/>
+      </Unit6>
+      <Unit7>
         <Filename Value="D:\Programs\lazarus\lcl\include\lclintf.inc"/>
         <TopLine Value="488"/>
         <CursorPos X="3" Y="478"/>
-        <UsageCount Value="5"/>
-      </Unit10>
-      <Unit11>
+        <UsageCount Value="1"/>
+      </Unit7>
+      <Unit8>
         <Filename Value="C:\soft\lazarus2016\lcl\include\wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6885"/>
         <CursorPos X="35" Y="6907"/>
-        <UsageCount Value="10"/>
-      </Unit11>
-      <Unit12>
+        <UsageCount Value="5"/>
+      </Unit8>
+      <Unit9>
         <Filename Value="C:\soft\lazarus2016\lcl\propertystorage.pas"/>
         <UnitName Value="PropertyStorage"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="528"/>
         <CursorPos Y="546"/>
-        <UsageCount Value="10"/>
-      </Unit12>
-      <Unit13>
+        <UsageCount Value="5"/>
+      </Unit9>
+      <Unit10>
         <Filename Value="C:\soft\lazarus2016\lcl\include\customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="136"/>
         <CursorPos X="20" Y="158"/>
-        <UsageCount Value="10"/>
-      </Unit13>
-      <Unit14>
+        <UsageCount Value="5"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="C:\soft\lazarus2016\components\lazutils\lazmethodlist.pas"/>
         <UnitName Value="LazMethodList"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="205"/>
         <CursorPos Y="236"/>
-        <UsageCount Value="10"/>
-      </Unit14>
-      <Unit15>
+        <UsageCount Value="5"/>
+      </Unit11>
+      <Unit12>
         <Filename Value="fpexprpars2.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="fpexprpars"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="17" Y="18"/>
-        <UsageCount Value="20"/>
+        <TopLine Value="672"/>
+        <CursorPos X="51" Y="691"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
-      </Unit15>
+      </Unit12>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="main.pas"/>
-        <Caret Line="393" Column="26" TopLine="384"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1264" Column="18" TopLine="1234"/>
       </Position1>
       <Position2>
-        <Filename Value="main.pas"/>
-        <Caret Line="224" Column="75" TopLine="214"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1268" Column="19" TopLine="1238"/>
       </Position2>
       <Position3>
-        <Filename Value="main.pas"/>
-        <Caret Line="231" Column="11" TopLine="217"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1275" Column="20" TopLine="1245"/>
       </Position3>
       <Position4>
-        <Filename Value="main.pas"/>
-        <Caret Line="225" Column="23" TopLine="213"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="23" Column="35"/>
       </Position4>
       <Position5>
-        <Filename Value="main.pas"/>
-        <Caret Line="214" Column="32" TopLine="213"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="325" Column="16" TopLine="298"/>
       </Position5>
       <Position6>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="51" Column="20" TopLine="45"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="2815" Column="19" TopLine="2798"/>
       </Position6>
       <Position7>
-        <Filename Value="main.pas"/>
-        <Caret Line="334" Column="56" TopLine="323"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="2810" Column="28" TopLine="2792"/>
       </Position7>
       <Position8>
         <Filename Value="main.pas"/>
-        <Caret Line="205" Column="12" TopLine="177"/>
+        <Caret Line="28" Column="60"/>
       </Position8>
       <Position9>
         <Filename Value="main.pas"/>
-        <Caret Line="335" Column="11" TopLine="316"/>
+        <Caret Line="69" Column="56" TopLine="52"/>
       </Position9>
       <Position10>
-        <Filename Value="main.pas"/>
-        <Caret Line="353" TopLine="331"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="2793" Column="22" TopLine="2773"/>
       </Position10>
       <Position11>
-        <Filename Value="main.pas"/>
-        <Caret Line="355" TopLine="331"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="603" Column="20" TopLine="586"/>
       </Position11>
       <Position12>
-        <Filename Value="main.pas"/>
-        <Caret Line="354" TopLine="331"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1253" Column="36" TopLine="1223"/>
       </Position12>
       <Position13>
-        <Filename Value="main.pas"/>
-        <Caret Line="355" TopLine="331"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1431" Column="19" TopLine="1401"/>
       </Position13>
       <Position14>
-        <Filename Value="main.pas"/>
-        <Caret Line="354" TopLine="331"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1517" Column="27" TopLine="1544"/>
       </Position14>
       <Position15>
-        <Filename Value="main.pas"/>
-        <Caret Line="359" TopLine="331"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1563" Column="22" TopLine="1544"/>
       </Position15>
       <Position16>
-        <Filename Value="main.pas"/>
-        <Caret Line="334" TopLine="327"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="603" Column="20" TopLine="586"/>
       </Position16>
       <Position17>
-        <Filename Value="main.pas"/>
-        <Caret Line="391" TopLine="374"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="28" Column="22"/>
       </Position17>
       <Position18>
-        <Filename Value="main.pas"/>
-        <Caret Line="220" TopLine="201"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="37" Column="24" TopLine="7"/>
       </Position18>
       <Position19>
-        <Filename Value="main.pas"/>
-        <Caret Line="213" Column="35" TopLine="186"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="883" Column="28" TopLine="863"/>
       </Position19>
       <Position20>
-        <Filename Value="main.pas"/>
-        <Caret Line="95" Column="5" TopLine="72"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1368" Column="31" TopLine="1338"/>
       </Position20>
       <Position21>
-        <Filename Value="main.pas"/>
-        <Caret Line="368" Column="9" TopLine="342"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1375" Column="14" TopLine="1375"/>
       </Position21>
       <Position22>
-        <Filename Value="main.pas"/>
-        <Caret Line="363" Column="7" TopLine="345"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="27" Column="74" TopLine="10"/>
       </Position22>
       <Position23>
-        <Filename Value="main.pas"/>
-        <Caret Line="405" TopLine="391"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="36" Column="76" TopLine="10"/>
       </Position23>
       <Position24>
-        <Filename Value="main.pas"/>
-        <Caret Line="27" Column="56" TopLine="5"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="882" Column="28" TopLine="853"/>
       </Position24>
       <Position25>
-        <Filename Value="main.pas"/>
-        <Caret Line="361" TopLine="339"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1368" Column="37" TopLine="1338"/>
       </Position25>
       <Position26>
-        <Filename Value="main.pas"/>
-        <Caret Line="362" Column="37" TopLine="342"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1399" Column="34" TopLine="1379"/>
       </Position26>
       <Position27>
-        <Filename Value="main.pas"/>
-        <Caret Line="361" TopLine="342"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="317" Column="22" TopLine="299"/>
       </Position27>
       <Position28>
-        <Filename Value="main.pas"/>
-        <Caret Line="362" TopLine="342"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="319" Column="20" TopLine="299"/>
       </Position28>
       <Position29>
-        <Filename Value="main.pas"/>
-        <Caret Line="363" TopLine="342"/>
+        <Filename Value="fpexprpars2.pas"/>
+        <Caret Line="1399" Column="34" TopLine="1369"/>
       </Position29>
       <Position30>
         <Filename Value="main.pas"/>
-        <Caret Line="373" Column="28" TopLine="355"/>
+        <Caret Line="370" Column="25" TopLine="352"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>
