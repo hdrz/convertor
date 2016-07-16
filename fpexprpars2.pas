@@ -20,7 +20,7 @@ unit fpexprpars2;
 interface
 
 uses
-  Classes, SysUtils, contnrs;
+  Classes, SysUtils, contnrs, math;
 
 Type
   // tokens
@@ -28,14 +28,14 @@ Type
                 ttMul, ttLeft, ttRight, ttLessThanEqual, ttLargerThanEqual,
                 ttunequal, ttNumber, ttString, ttIdentifier,
                 ttComma, ttand, ttOr,ttXor,ttTrue,ttFalse,ttnot,ttif,
-                ttCase,ttEOF);
+                ttCase,ttEOF, ttPower);
 
   TExprFloat = Double;
 
 Const
   ttDelimiters = [ttPlus, ttMinus, ttLessThan, ttLargerThan, ttEqual, ttDiv,
                   ttMul, ttLeft, ttRight, ttLessThanEqual, ttLargerThanEqual,
-                  ttunequal];
+                  ttunequal, ttPower];
   ttComparisons = [ttLargerThan,ttLessthan,
                    ttLargerThanEqual,ttLessthanEqual,
                    ttEqual,ttUnequal];
@@ -309,6 +309,16 @@ Type
   TFPDivideOperation = Class(TMathOperation)
   Public
     Procedure Check; override;
+    Function AsString : string ; override;
+    Function NodeType : TResultType; override;
+    Procedure GetNodeValue(var Result : TFPExpressionResult); override;
+  end;
+
+  { TFPPowerOperation }
+
+  TFPPowerOperation = Class(TMathOperation)
+  Public
+    Procedure check; override;
     Function AsString : string ; override;
     Function NodeType : TResultType; override;
     Procedure GetNodeValue(var Result : TFPExpressionResult); override;
@@ -596,6 +606,7 @@ Type
     Function Level4 : TFPExprNode;
     Function Level5 : TFPExprNode;
     Function Level6 : TFPExprNode;
+    Function Level7 : TFPExprNode;
     Function Primitive : TFPExprNode;
     function GetToken: TTokenType;
     Function TokenType : TTokenType;
@@ -677,9 +688,9 @@ const
 
   Digits        = ['0'..'9','.'];
   WhiteSpace    = [' ',#13,#10,#9];
-  Operators     = ['+','-','<','>','=','/','*'];
+  Operators     = ['+','-','<','>','=','/','*','^'];
   Delimiters    = Operators+[',','(',')'];
-  Symbols       = ['%','^']+Delimiters;
+  Symbols       = ['%']+Delimiters;
   WordDelimiters = WhiteSpace + Symbols;
 
 Resourcestring
@@ -873,6 +884,7 @@ begin
       '(' : Result := ttLeft;
       ')' : Result := ttRight;
       ',' : Result := ttComma;
+      '^' : Result := ttPower;
     else
       ScanError(Format(SUnknownDelimiter,[D]));
     end;
@@ -1372,25 +1384,47 @@ end;
 
 function TFPExpressionParser.Level5: TFPExprNode;
 
+var
+  right : TFPExprNode;
+
+begin
+{$ifdef debugexpr}  Writeln('Level 5 ',TokenName(TokenType),': ',CurrentToken);{$endif debugexpr}
+  Result:=Level6;
+  try
+    while (TokenType = ttPower) do
+      begin
+      GetToken;
+      Right:=Level6;
+      CheckNodes(Result,Right);
+      Result := TFPPowerOperation.Create(Result,Right);
+      end;
+  Except
+    Result.Free;
+    Raise;
+  end;
+end;
+
+function TFPExpressionParser.Level6: TFPExprNode;
+
 Var
   B : Boolean;
 
 begin
-{$ifdef debugexpr}  Writeln('Level 5 ',TokenName(TokenType),': ',CurrentToken);{$endif debugexpr}
+{$ifdef debugexpr}  Writeln('Level 6 ',TokenName(TokenType),': ',CurrentToken);{$endif debugexpr}
   B:=False;
   if (TokenType in [ttPlus,ttMinus]) then
     begin
     B:=TokenType=ttMinus;
     GetToken;
     end;
-  Result:=Level6;
+  Result:=Level7;
   If B then
     Result:=TFPNegateOperation.Create(Result);
 end;
 
-function TFPExpressionParser.Level6: TFPExprNode;
+function TFPExpressionParser.Level7: TFPExprNode;
 begin
-{$ifdef debugexpr}  Writeln('Level 6 ',TokenName(TokenType),': ',CurrentToken);{$endif debugexpr}
+{$ifdef debugexpr}  Writeln('Level 7 ',TokenName(TokenType),': ',CurrentToken);{$endif debugexpr}
   if (TokenType=ttLeft) then
     begin
     GetToken;
@@ -2753,6 +2787,43 @@ begin
   case Result.ResultType of
     rtInteger  : Result.ResFloat:=Result.ResInteger/RRes.ResInteger;
     rtFloat    : Result.ResFLoat:=Result.ResFLoat/RRes.ResFLoat;
+  end;
+  Result.ResultType:=rtFloat;
+end;
+
+{ TFPPowerOperation }
+
+procedure TFPPowerOperation.check;
+Const
+  AllowedTypes =[rtInteger,rtfloat];
+
+begin
+  CheckNodeType(Left,AllowedTypes);
+  CheckNodeType(Right,AllowedTypes);
+  inherited check;
+end;
+
+function TFPPowerOperation.AsString: string;
+begin
+  Result:=Left.AsString+' ^ '+Right.asString;
+end;
+
+function TFPPowerOperation.NodeType: TResultType;
+begin
+  Result:=rtFLoat;
+end;
+
+Procedure TFPPowerOperation.GetNodeValue(var Result : TFPExpressionResult);
+
+Var
+  RRes : TFPExpressionResult;
+
+begin
+  Left.GetNodeValue(Result);
+  Right.GetNodeValue(RRes);
+  case Result.ResultType of
+    rtInteger  : Result.ResFloat:=power(Result.ResInteger, RRes.ResInteger);
+    rtFloat    : Result.ResFLoat:=power(Result.ResFLoat, RRes.ResFLoat);
   end;
   Result.ResultType:=rtFloat;
 end;
