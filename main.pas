@@ -1,6 +1,6 @@
 { Convertor - A free & open sorce unit converter
 
-  Copyright (C) 2012 H. Raz hadaraz@gmail.com
+  Copyright (C) 2012-2016 H. Raz hadaraz@gmail.com
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -70,8 +70,8 @@ type
       aState: TCheckboxState);
     procedure UnitGridContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: boolean);
-    procedure UnitGridMouseMove(Sender: TObject; Shift: TShiftState;
-      X, Y: integer);
+    procedure UnitGridGetCellHint(Sender: TObject; ACol, ARow: Integer;
+      var HintText: String);
     procedure ChangeValue;
     procedure ChooseUnit(UCat: TUnitCategory; i, side: integer);
     procedure ToggleUnitsPanel(shw: shortstring);
@@ -115,6 +115,27 @@ implementation
 {$R *.lfm}
 
 { TForm1 }
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  // read the .xml file and populate the string lists
+  UnitInit;
+  // show categories
+  CatListBox.Items := CatList;
+  CatListBox.Selected[0] := True;
+  arrow.Picture.LoadFromLazarusResource('right');
+  Toggle.LoadGlyphFromLazarusResource('up');
+  ActiveSide := 'left';
+  Shrink := False;
+  FExpParser := TFPExpressionParser.Create(nil);
+  FExpParser.Builtins := [bcMath];
+  UnitGrid.FocusRectVisible := False;
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+  FExpParser.Free;
+end;
 
 procedure TForm1.FormWindowStateChange(Sender: TObject);
 // change visibility of window and tray icon
@@ -213,28 +234,6 @@ begin
   end;
 end;
 
-procedure TForm1.FormCreate(Sender: TObject);
-begin
-  // read the .xml file and populate the string lists
-  UnitInit;
-  // show categories
-  CatListBox.Items := CatList;
-  CatListBox.Selected[0] := True;
-  arrow.Picture.LoadFromLazarusResource('right');
-  Toggle.LoadGlyphFromLazarusResource('up');
-  ActiveSide := 'left';
-  Shrink := False;
-  FExpParser := TFPExpressionParser.Create(nil);
-  FExpParser.Builtins := [bcMath];
-  UnitGrid.FocusRectVisible := False;
-end;
-
-procedure TForm1.FormDestroy(Sender: TObject);
-begin
-  FExpParser.Free;
-end;
-
-
 procedure TForm1.IniFileRestoreProperties(Sender: TObject);
 // restore application properties from .ini file
 var
@@ -329,24 +328,23 @@ begin
   Handled := True;
 end;
 
-procedure TForm1.UnitGridMouseMove(Sender: TObject; Shift: TShiftState;
-  X, Y: integer);
-// show hints for units
+procedure TForm1.UnitGridGetCellHint(Sender: TObject; ACol, ARow: Integer;
+  var HintText: String);
 var
   item: integer;
   obj: TUnitData;
+// show hints for units
 begin
- { item := UnitGrid.get GetIndexAtY(Y);
-  if item >= 0 then
+  obj := TUnitData(UnitGrid.Cols[1].Objects[ARow]);
+  if Assigned(obj) then
   begin
-    obj := UnitGrid.Items.Objects[item] as TUnitData;
     if obj.Info <> '' then
-      UnitGrid.Hint := obj.Info
+      HintText := obj.Info
     else
-      UnitGrid.Hint := UnitGrid.Items[item];
+      HintText := obj.Name;
   end
   else
-    CatListBox.Hint := '';     }
+    HintText := '';
 end;
 
 procedure TForm1.ChangeValue;
