@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 1863
+  Left = 500
   Height = 503
-  Top = 165
+  Top = 137
   Width = 690
   AutoSize = True
   BorderIcons = [biSystemMenu, biMinimize]
@@ -124,7 +124,7 @@ object Form1: TForm1
       Left = 5
       Height = 398
       Top = 5
-      Width = 233
+      Width = 200
       Align = alLeft
       Anchors = [akTop, akLeft, akRight, akBottom]
       AutoSize = True
@@ -134,13 +134,13 @@ object Form1: TForm1
       ChildSizing.HorizontalSpacing = 6
       ChildSizing.VerticalSpacing = 6
       ClientHeight = 378
-      ClientWidth = 229
+      ClientWidth = 196
       TabOrder = 0
       object CatListBox: TListBox
         Left = 6
         Height = 370
         Top = 6
-        Width = 217
+        Width = 184
         Align = alTop
         ExtendedSelect = False
         ItemHeight = 0
@@ -152,10 +152,10 @@ object Form1: TForm1
       end
     end
     object GroupBox2: TGroupBox
-      Left = 242
+      Left = 209
       Height = 398
       Top = 5
-      Width = 233
+      Width = 266
       Align = alLeft
       Anchors = [akTop, akLeft, akRight, akBottom]
       AutoSize = True
@@ -165,23 +165,51 @@ object Form1: TForm1
       ChildSizing.HorizontalSpacing = 6
       ChildSizing.VerticalSpacing = 6
       ClientHeight = 378
-      ClientWidth = 229
+      ClientWidth = 262
       TabOrder = 1
-      object UnitListBox: TListBox
+      object UnitGrid: TStringGrid
         Left = 6
         Height = 368
         Top = 6
-        Width = 217
+        Width = 250
         Align = alTop
         Anchors = [akTop, akLeft, akRight, akBottom]
+        AutoFillColumns = True
+        ColCount = 3
+        Columns = <        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            SizePriority = 0
+            Title.Caption = 'Left'
+            Width = 40
+          end        
+          item
+            ReadOnly = True
+            Title.Caption = 'Unit'
+            Width = 166
+          end        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            SizePriority = 0
+            Title.Caption = 'Right'
+            Width = 40
+          end>
         ExtendedSelect = False
-        ItemHeight = 0
-        OnContextPopup = UnitListBoxContextPopup
-        OnMouseMove = UnitListBoxMouseMove
-        OnMouseUp = UnitListBoxMouseUp
-        ParentShowHint = False
-        ShowHint = True
+        FixedCols = 0
+        FixedRows = 0
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goCellHints]
+        RowCount = 2
+        TabAdvance = aaDown
         TabOrder = 0
+        TitleFont.Height = 16
+        OnCheckboxToggled = UnitGridCheckboxToggled
+        OnContextPopup = UnitGridContextPopup
+        OnMouseMove = UnitGridMouseMove
+        ColWidths = (
+          40
+          166
+          40
+        )
       end
     end
   end

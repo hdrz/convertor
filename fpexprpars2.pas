@@ -20,7 +20,7 @@ unit fpexprpars2;
 interface
 
 uses
-  Classes, SysUtils, contnrs, math;
+  Classes, SysUtils, contnrs;
 
 Type
   // tokens
@@ -678,7 +678,8 @@ Const
 
 implementation
 
-uses typinfo;
+uses
+  typinfo, math;
 
 { TFPExpressionParser }
 

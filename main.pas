@@ -25,7 +25,7 @@ interface
 
 uses
   SysUtils, Forms, Controls, Dialogs, StdCtrls, Menus, ExtCtrls, IniPropStorage,
-  Buttons, Classes, types, LResources, ClipBrd, fpexprpars2, unit1;
+  Buttons, Classes, types, LResources, ClipBrd, Grids, fpexprpars2, unit1;
 
 type
 
@@ -44,12 +44,12 @@ type
     U1: TStaticText;
     U2: TStaticText;
     CatListBox: TListBox;
-    UnitListBox: TListBox;
     Panel2: TPanel;
     StayOnTop: TMenuItem;
     About: TMenuItem;
     PopupMenu1: TPopupMenu;
     SysTrayIcon: TTrayIcon;
+    UnitGrid: TStringGrid;
     procedure AboutClick(Sender: TObject);
     procedure CatListBoxMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: integer);
@@ -66,14 +66,14 @@ type
     procedure StayOnTopClick(Sender: TObject);
     procedure SysTrayIconClick(Sender: TObject);
     procedure ToggleChange(Sender: TObject);
-    procedure UnitListBoxContextPopup(Sender: TObject; MousePos: TPoint;
+    procedure UnitGridCheckboxToggled(sender: TObject; aCol, aRow: Integer;
+      aState: TCheckboxState);
+    procedure UnitGridContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: boolean);
-    procedure UnitListBoxMouseMove(Sender: TObject; Shift: TShiftState;
+    procedure UnitGridMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: integer);
-    procedure UnitListBoxMouseUp(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: integer);
     procedure ChangeValue;
-    procedure ChooseUnit(UCat: TUnitCategory; i: integer; side: string);
+    procedure ChooseUnit(UCat: TUnitCategory; i, side: integer);
     procedure ToggleUnitsPanel(shw: shortstring);
   private
     { private declarations }
@@ -95,7 +95,7 @@ const
     'http://www.moosht.org/convertor' + sLineBreak +
     sLineBreak +
     'Simple expressions are supported:' + sLineBreak +
-    '  +, -, *, /,' + sLineBreak +
+    '  +, -, *, /, ^' + sLineBreak +
     '  cos, sin, arctan, abs, sqr, sqrt, exp,' + sLineBreak +
     '  ln, log, frac, int, round, trunc' + sLineBreak +
     '  Angles are in radians.' + sLineBreak +
@@ -160,14 +160,22 @@ var
   Ucat: TUnitCategory;
 begin
   i := CatListBox.GetIndexAtY(Y);
+  IniFile.StoredValue['activecat'] := IntToStr(i);
   if (i >= 0) and (Button = mbLeft) then
   begin
     UCat := (CatList.Objects[i] as TUnitCategory);
-    UnitListBox.Items := UCat.UnitList;
+    UnitGrid.RowCount := Ucat.UnitList.Count;
+    UnitGrid.Cols[1].Assign(UCat.UnitList);
+    for i:=0 to UnitGrid.RowCount-1 do
+    begin
+      UnitGrid.Cells[0, i] := '0';
+      UnitGrid.Cells[2, i] := '0';
+    end;
+    UnitGrid.Cells[0, UCat.LIndx] := '1';
+    UnitGrid.Cells[2, UCat.RIndx] := '1';
+    ChooseUnit(UCat, UCat.LIndx, 0);
+    ChooseUnit(UCat, UCat.RIndx, 2);
     Form1.Caption := UCat.Name + ' Convertor';
-    ChooseUnit(UCat, UCat.LIndx, 'L');
-    ChooseUnit(UCat, UCat.RIndx, 'R');
-    IniFile.StoredValue['activecat'] := IntToStr(i);
   end;
 end;
 
@@ -218,6 +226,7 @@ begin
   Shrink := False;
   FExpParser := TFPExpressionParser.Create(nil);
   FExpParser.Builtins := [bcMath];
+  UnitGrid.FocusRectVisible := False;
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
@@ -230,6 +239,7 @@ procedure TForm1.IniFileRestoreProperties(Sender: TObject);
 // restore application properties from .ini file
 var
   UCat: TUnitCategory;
+  i, lu, ru: Integer;
 begin
   if StrToBool(IniFile.StoredValue['ontop']) then
   begin
@@ -247,10 +257,19 @@ begin
   Edit1.Text := IniFile.StoredValue['value'];
   CatListBox.Selected[StrToInt(IniFile.StoredValue['activecat'])] := True;
   UCat := (CatListBox.Items.Objects[CatListBox.ItemIndex] as TUnitCategory);
-  UnitListBox.Items := UCat.UnitList;
-  ChooseUnit(UCat, StrToInt(IniFile.StoredValue['leftunit']), 'L');
-  ChooseUnit(UCat, StrToInt(IniFile.StoredValue['rightunit']), 'R');
-  {SpecialDate;  // change dialogs if special date..}
+  UnitGrid.RowCount := Ucat.UnitList.Count;
+  UnitGrid.Cols[1].Assign(UCat.UnitList);
+  lu := StrToInt(IniFile.StoredValue['leftunit']);
+  ru := StrToInt(IniFile.StoredValue['rightunit']);
+  for i:=0 to UnitGrid.RowCount-1 do
+  begin
+    UnitGrid.Cells[0, i] := '0';
+    UnitGrid.Cells[2, i] := '0';
+  end;
+  UnitGrid.Cells[0, lu] := '1';
+  UnitGrid.Cells[2, ru] := '1';
+  ChooseUnit(UCat, lu, 0);
+  ChooseUnit(UCat, ru, 2);
 end;
 
 procedure TForm1.AutoCloseClick(Sender: TObject);
@@ -288,64 +307,53 @@ begin
   ToggleUnitsPanel('toggle');
 end;
 
-procedure TForm1.UnitListBoxContextPopup(Sender: TObject; MousePos: TPoint;
+procedure TForm1.UnitGridCheckboxToggled(sender: TObject; aCol, aRow: Integer;
+  aState: TCheckboxState);
+var
+  i: Integer;
+  UCat: TUnitCategory;
+begin
+  for i:=0 to UnitGrid.RowCount-1 do
+    if i<>aRow then
+      UnitGrid.Cells[aCol,i] := '0'
+    else
+      UnitGrid.Cells[aCol,i] := '1';
+  UCat := (CatListBox.Items.Objects[CatListBox.ItemIndex] as TUnitCategory);
+  ChooseUnit(Ucat, aRow, aCol);
+end;
+
+procedure TForm1.UnitGridContextPopup(Sender: TObject; MousePos: TPoint;
   var Handled: boolean);
 // disable popup menu on unit listbox
 begin
   Handled := True;
 end;
 
-procedure TForm1.UnitListBoxMouseMove(Sender: TObject; Shift: TShiftState;
+procedure TForm1.UnitGridMouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: integer);
 // show hints for units
 var
   item: integer;
   obj: TUnitData;
 begin
-  item := UnitListBox.GetIndexAtY(Y);
+ { item := UnitGrid.get GetIndexAtY(Y);
   if item >= 0 then
   begin
-    obj := UnitListBox.Items.Objects[item] as TUnitData;
+    obj := UnitGrid.Items.Objects[item] as TUnitData;
     if obj.Info <> '' then
-      UnitListBox.Hint := obj.Info
+      UnitGrid.Hint := obj.Info
     else
-      UnitListBox.Hint := UnitListBox.Items[item];
+      UnitGrid.Hint := UnitGrid.Items[item];
   end
   else
-    CatListBox.Hint := '';
-end;
-
-procedure TForm1.UnitListBoxMouseUp(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: integer);
-// select left and right units for conversion
-var
-  i: integer;
-  UCat: TUnitCategory;
-  abbr: string;
-  side: string;
-begin
-  UCat := (CatListBox.Items.Objects[CatListBox.ItemIndex] as TUnitCategory);
-  i := UnitListBox.GetIndexAtY(Y);
-  if i >= 0 then
-  begin
-    if Button = mbLeft then
-    begin
-      side := 'L';
-      IniFile.StoredValue['leftunit'] := IntToStr(i);
-    end
-    else if Button = mbRight then
-    begin
-      side := 'R';
-      IniFile.StoredValue['rightunit'] := IntToStr(i);
-    end;
-    ChooseUnit(UCat, i, side);
-  end;
+    CatListBox.Hint := '';     }
 end;
 
 procedure TForm1.ChangeValue;
 // convert one value to the other
 var
   resultValue: double;
+  indx: Integer;
 begin
   FUCat := (CatListBox.Items.Objects[CatListBox.ItemIndex] as TUnitCategory);
   if (FUCat.LeftUnit <> nil) and (FUCat.RightUnit <> nil) then
@@ -376,36 +384,32 @@ begin
   IniFile.StoredValue['value'] := Edit1.Text;
 end;
 
-procedure TForm1.ChooseUnit(UCat: TUnitCategory; i: integer; side: string);
+procedure TForm1.ChooseUnit(UCat: TUnitCategory; i, side: integer);
 var
   item: TUnitData;
   abbr: string;
 begin
-  item := (UnitListBox.Items.Objects[i] as TUnitData);
+  item := (UnitGrid.Cols[1].Objects[i] as TUnitData);
   if item.abbr <> '' then
     abbr := item.ABBR
   else
     abbr := item.Name;
-  if side = 'L' then
+  if side = 0 then
   begin
     U1.Caption := abbr;
-    if UCat.LeftUnit <> nil then
-      UnitListBox.Items[UCat.LIndx] := UCat.LeftUnit.Name;
     UCat.LeftUnit := item;
+    IniFile.StoredValue['leftunit'] := IntToStr(i);
     UCat.LIndx := i;
     ChangeValue;
   end
   else
   begin
     U2.Caption := abbr;
-    (UnitListBox as TCustomListBox).Selected[i] := True;
-    if UCat.RightUnit <> nil then
-      UnitListBox.Items[UCat.RIndx] := UCat.RightUnit.Name;
     UCat.RightUnit := item;
+    IniFile.StoredValue['rightunit'] := IntToStr(i);
     UCat.RIndx := i;
     ChangeValue;
   end;
-  UnitListBox.Items[i] := item.Name + ' (' + side + ')';
 end;
 
 procedure TForm1.ToggleUnitsPanel(shw: shortstring);
