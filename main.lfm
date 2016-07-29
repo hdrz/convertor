@@ -114,22 +114,23 @@ object Form1: TForm1
     AnchorSideRight.Control = Panel1
     AnchorSideRight.Side = asrBottom
     Left = 0
-    Height = 408
+    Height = 412
     Top = 122
     Width = 478
     Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
     ChildSizing.LeftRightSpacing = 4
     ChildSizing.TopBottomSpacing = 4
     ChildSizing.HorizontalSpacing = 4
     ChildSizing.VerticalSpacing = 4
-    ClientHeight = 408
+    ClientHeight = 412
     ClientWidth = 478
     Font.Height = 16
     ParentFont = False
     TabOrder = 0
     object GroupBox1: TGroupBox
       Left = 5
-      Height = 398
+      Height = 402
       Top = 5
       Width = 200
       Align = alLeft
@@ -140,7 +141,7 @@ object Form1: TForm1
       ChildSizing.TopBottomSpacing = 6
       ChildSizing.HorizontalSpacing = 6
       ChildSizing.VerticalSpacing = 6
-      ClientHeight = 378
+      ClientHeight = 382
       ClientWidth = 196
       TabOrder = 0
       object CatListBox: TListBox
@@ -160,7 +161,7 @@ object Form1: TForm1
     end
     object GroupBox2: TGroupBox
       Left = 209
-      Height = 398
+      Height = 402
       Top = 5
       Width = 266
       Align = alLeft
@@ -171,12 +172,12 @@ object Form1: TForm1
       ChildSizing.TopBottomSpacing = 6
       ChildSizing.HorizontalSpacing = 6
       ChildSizing.VerticalSpacing = 6
-      ClientHeight = 378
+      ClientHeight = 382
       ClientWidth = 262
       TabOrder = 1
       object UnitGrid: TStringGrid
         Left = 6
-        Height = 368
+        Height = 372
         Top = 6
         Width = 250
         Align = alTop
