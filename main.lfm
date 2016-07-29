@@ -21,18 +21,19 @@ object Form1: TForm1
   Visible = True
   object Panel1: TPanel
     Left = 0
-    Height = 122
+    Height = 58
     Top = 0
     Width = 478
-    AutoSize = True
     ChildSizing.LeftRightSpacing = 6
     ChildSizing.TopBottomSpacing = 6
     ChildSizing.HorizontalSpacing = 6
     ChildSizing.VerticalSpacing = 6
-    ClientHeight = 122
+    ClientHeight = 58
     ClientWidth = 478
     TabOrder = 1
     object Edit1: TEdit
+      AnchorSideLeft.Control = Panel1
+      AnchorSideTop.Control = Panel1
       Left = 7
       Height = 24
       Top = 7
@@ -50,33 +51,45 @@ object Form1: TForm1
       Text = '1'
     end
     object U1: TStaticText
+      AnchorSideLeft.Control = Edit1
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Edit1
       Left = 133
       Height = 24
       Top = 7
       Width = 80
       Align = alLeft
+      BorderSpacing.Around = 6
       Constraints.MaxHeight = 24
       Font.Height = 16
       ParentFont = False
       TabOrder = 2
     end
     object U2: TStaticText
+      AnchorSideLeft.Control = Edit2
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Edit1
+      AnchorSideTop.Side = asrCenter
       Left = 391
       Height = 24
       Top = 7
       Width = 80
-      Align = alLeft
+      BorderSpacing.Around = 6
       Constraints.MaxHeight = 24
       Font.Height = 16
       ParentFont = False
       TabOrder = 3
     end
     object Edit2: TEdit
+      AnchorSideLeft.Control = arrow
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Edit1
+      AnchorSideTop.Side = asrCenter
       Left = 265
-      Height = 24
-      Top = 7
+      Height = 23
+      Top = 8
       Width = 120
-      Align = alLeft
+      AutoSize = False
       BorderSpacing.Around = 6
       Constraints.MaxHeight = 24
       Font.Height = 16
@@ -88,22 +101,34 @@ object Form1: TForm1
       Text = '1'
     end
     object arrow: TImage
+      AnchorSideLeft.Control = Panel1
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = Edit1
+      AnchorSideTop.Side = asrCenter
       Left = 219
-      Height = 90
+      Height = 24
       Top = 7
       Width = 40
-      Align = alLeft
-      AutoSize = True
+      BorderSpacing.Around = 6
       Center = True
       Constraints.MinHeight = 24
       Constraints.MinWidth = 40
     end
     object Toggle: TSpeedButton
+      AnchorSideLeft.Control = Panel1
+      AnchorSideTop.Control = Edit1
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = Panel1
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Panel1
+      AnchorSideBottom.Side = asrBottom
       Left = 7
-      Height = 12
-      Top = 103
+      Height = 14
+      Top = 37
       Width = 464
       Align = alBottom
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Around = 6
       OnClick = ToggleChange
     end
   end
@@ -115,7 +140,7 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     Left = 0
     Height = 412
-    Top = 122
+    Top = 58
     Width = 478
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
