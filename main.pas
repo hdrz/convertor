@@ -91,14 +91,14 @@ type
 const
   cABOUT =
     'Convertor is a free unit converter.' + sLineBreak +
-    'By H. Raz ©2016' + sLineBreak +
-    'http://www.moosht.org/convertor' + sLineBreak +
+    'By H. Raz ©2012-2017' + sLineBreak +
+    'https://github.com/hdrz/convertor' + sLineBreak +
     sLineBreak +
     'Simple expressions are supported:' + sLineBreak +
-    '  +, -, *, /, ^' + sLineBreak +
-    '  cos, sin, arctan, abs, sqr, sqrt, exp,' + sLineBreak +
-    '  ln, log, frac, int, round, trunc' + sLineBreak +
-    '  Angles are in radians.' + sLineBreak +
+    '       +, -, *, /, ^' + sLineBreak +
+    '       cos, sin, arctan, abs, sqr, sqrt, exp,' + sLineBreak +
+    '       ln, log, frac, int, round, trunc' + sLineBreak +
+    '       Angles are in radians.' + sLineBreak +
     sLineBreak +
     'Using:' + sLineBreak +
     ' - Up && Down blue arrows by' + sLineBreak +

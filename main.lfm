@@ -17,7 +17,7 @@ object Form1: TForm1
   PopupMenu = PopupMenu1
   Position = poDefault
   ShowHint = True
-  LCLVersion = '1.6.0.4'
+  LCLVersion = '1.7'
   Visible = True
   object Panel1: TPanel
     Left = 0
@@ -247,8 +247,8 @@ object Form1: TForm1
     end
   end
   object PopupMenu1: TPopupMenu
-    left = 88
-    top = 328
+    Left = 88
+    Top = 328
     object StayOnTop: TMenuItem
       AutoCheck = True
       Caption = 'Stay on top'
@@ -809,8 +809,8 @@ object Form1: TForm1
     }
     Hint = 'Convertor'
     OnClick = SysTrayIconClick
-    left = 88
-    top = 176
+    Left = 88
+    Top = 176
   end
   object IniFile: TIniPropStorage
     StoredValues = <    
@@ -845,7 +845,7 @@ object Form1: TForm1
     IniFileName = 'convertor.ini'
     IniSection = 'General'
     OnRestoreProperties = IniFileRestoreProperties
-    left = 88
-    top = 256
+    Left = 88
+    Top = 256
   end
 end
