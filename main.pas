@@ -92,7 +92,7 @@ const
   cABOUT =
     'Convertor is a free unit converter.' + sLineBreak +
     'By H. Raz ©2012-2017' + sLineBreak +
-    'https://github.com/hdrz/convertor' + sLineBreak +
+    'https://hdrz.github.io/convertor' + sLineBreak +
     sLineBreak +
     'Simple expressions are supported:' + sLineBreak +
     '       +, -, *, /, ^' + sLineBreak +

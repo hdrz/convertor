@@ -2,7 +2,7 @@
 
 ### Convertor is a free and open source unit converter written in object pascal
 
-![convertor](convertor150.png "convertor")
+![convertor](convertor48.png "convertor")
 
 ## Description
 
@@ -15,6 +15,10 @@ Convertor is written in object pascal, and is using the [free pascal](http://www
   1. Install lazarus on your system.
   2. Clone this [repo](https://github.com/hdrz/convertor) and open convertor.lpi in lazarus.
   3. Compile.
+
+## Note
+
+This is the first program I ever wrote in object pascal (or any language), so the style and logic are not the best you can find...
 
 ## License
 

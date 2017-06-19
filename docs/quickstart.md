@@ -16,8 +16,7 @@
 
 ## Quickstart
 
-Fire up the application, and it should resemble the next image (see the red numbers
-for the description that follows):
+Fire up the application, and it should resemble the next image (See the red numbers for the description that follows):
 
 ![layout](conv-layout.png "layout")
 
@@ -25,7 +24,7 @@ for the description that follows):
 
   2.  The left list is the category list. Click on a category and the unit list will change accordingly.
 
-  3.  The right list is the unit list in each category. Left click on a unit will choose that unit for the left input box, right click on a unit will choose that unit for the right input box.
+  3.  The right list is the unit list in each category. Left column will choose that unit for the left input box, right column will choose that unit for the right input box.
 
   4.  Click this long button and the two lists will hide. Another click will show them again.
 
