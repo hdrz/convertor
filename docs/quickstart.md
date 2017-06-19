@@ -18,7 +18,7 @@
 
 Fire up the application, and it should resemble the next image (See the red numbers for the description that follows):
 
-![layout](conv-layout.png "layout")
+![layout](conv-layout.gif "layout")
 
   1.  On this paticular image, the conversion is done from the left input box to the right, and the category and unit lists are visible. The direction of conversion is determined by placing the mouse in one of the input boxes.
 
