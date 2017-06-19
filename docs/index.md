@@ -8,6 +8,10 @@
 
 This is a small and unobtrusive unit converter. It is in fact a study in minimalism and effective UI design. Check out [highlights + quickstart](quickstart.md) for a short howto.
 
+## Download
+
+Download a binary from the [releases](https://github.com/hdrz/convertor/releases) page
+
 ## Build
 
 Convertor is written in object pascal, and is using the [free pascal](http://www.freepascal.org) compiler and the [lazarus](http://lazarus.freepascal.org) widgets and library. So first go ahead and install Lazarus, it will install fpc with it.
@@ -18,7 +22,7 @@ Convertor is written in object pascal, and is using the [free pascal](http://www
 
 ## Note
 
-This is the first program I ever wrote in object pascal (or any language), so the style and logic are not the best you can find...
+This was the first program I ever wrote in object pascal (or any language), so the style and logic are not the best you can find...
 
 ## License
 
